@@ -87,7 +87,7 @@ jobs:
         with:
           fileName: AuthKey.p8
           fileDir: ${{ github.workspace }}
-          encodedString: ${{ secrets.APPSTORE_PRIVATE_KEY_BASE64 }}
+          encodedString: ${{ secrets.appstore-private-key }}
 
       - name: Download Provisioning Profiles
         id: provisioning
