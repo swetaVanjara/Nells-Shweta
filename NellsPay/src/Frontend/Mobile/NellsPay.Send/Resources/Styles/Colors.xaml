@@ -1,0 +1,521 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!--  Note: New Updated Colour Palette  -->
+    <!--  Primary Colors  -->
+    <Color x:Key="Primary900Light">#133D6B</Color>
+    <Color x:Key="Primary900Dark">#EAF4FF</Color>
+
+    <Color x:Key="Primary800Light">#19508C</Color>
+    <Color x:Key="Primary800Dark">#BEDDFF</Color>
+
+    <Color x:Key="Primary700Light">#2168B5</Color>
+    <Color x:Key="Primary700Dark">#9FCDFF</Color>
+
+    <Color x:Key="Primary600Light">#569FFF</Color>
+    <Color x:Key="Primary600Dark">#73B6FF</Color>
+
+    <Color x:Key="Primary500Light">#2E92FF</Color>
+    <Color x:Key="Primary500Dark">#58A8FF</Color>
+
+    <Color x:Key="Primary400Light">#58A8FF</Color>
+    <Color x:Key="Primary400Dark">#2E92FF</Color>
+
+    <Color x:Key="Primary300Light">#73B6FF</Color>
+    <Color x:Key="Primary300Dark">#BEDDFF</Color>
+
+    <Color x:Key="Primary200Light">#9FCDFF</Color>
+    <Color x:Key="Primary200Dark">#2168B5</Color>
+
+    <Color x:Key="Primary100Light">#BEDDFF</Color>
+    <Color x:Key="Primary100Dark">#19508C</Color>
+
+    <Color x:Key="Primary50Light">#EAF4FF</Color>
+    <Color x:Key="Primary50Dark">#133D6B</Color>
+
+    <!--  Secondary Colors  -->
+    <Color x:Key="Secondary900Light">#134920</Color>
+    <Color x:Key="Secondary900Dark">#EAF7ED</Color>
+
+    <Color x:Key="Secondary800Light">#195F29</Color>
+    <Color x:Key="Secondary800Dark">#BEE6C7</Color>
+
+    <Color x:Key="Secondary700Light">#217B35</Color>
+    <Color x:Key="Secondary700Dark">#9FD9AC</Color>
+
+    <Color x:Key="Secondary600Light">#2A9D44</Color>
+    <Color x:Key="Secondary600Dark">#73C886</Color>
+
+    <Color x:Key="Secondary500Light">#2EAD4B</Color>
+    <Color x:Key="Secondary500Dark">#58BD6F</Color>
+
+    <Color x:Key="Secondary400Light">#58BD6F</Color>
+    <Color x:Key="Secondary400Dark">#2EAD4B</Color>
+
+    <Color x:Key="Secondary300Light">#73C886</Color>
+    <Color x:Key="Secondary300Dark">#2A9D44</Color>
+
+    <Color x:Key="Secondary200Light">#9FD9AC</Color>
+    <Color x:Key="Secondary200Dark">#217B35</Color>
+
+    <Color x:Key="Secondary100Light">#BEE6C7</Color>
+    <Color x:Key="Secondary100Dark">#195F29</Color>
+
+    <Color x:Key="Secondary50Light">#EAF7ED</Color>
+    <Color x:Key="Secondary50Dark">#134920</Color>
+
+    <!--  Neutral Colors  -->
+    <Color x:Key="Neutral900Light">#101828</Color>
+    <Color x:Key="Neutral900Dark">#FCFCFD</Color>
+
+    <Color x:Key="Neutral800Light">#1D2939</Color>
+    <Color x:Key="Neutral800Dark">#F2F4F7</Color>
+
+    <Color x:Key="Neutral700Light">#344054</Color>
+    <Color x:Key="Neutral700Dark">#EAECF0</Color>
+
+    <Color x:Key="Neutral600Light">#667085</Color>
+    <Color x:Key="Neutral600Dark">#D0D5DD</Color>
+
+    <Color x:Key="Neutral500Light">#98A2B3</Color>
+    <Color x:Key="Neutral500Dark">#98A2B3</Color>
+
+    <Color x:Key="Neutral400Light">#D0D5DD</Color>
+    <Color x:Key="Neutral400Dark">#667085</Color>
+
+    <Color x:Key="Neutral300Light">#EAECF0</Color>
+    <Color x:Key="Neutral300Dark">#344054</Color>
+
+    <Color x:Key="Neutral200Light">#F2F4F7</Color>
+    <Color x:Key="Neutral200Dark">#1D2939</Color>
+
+    <Color x:Key="Neutral100Light">#F6F6F6</Color>
+    <Color x:Key="Neutral100Dark">#101828</Color>
+
+    <Color x:Key="Neutral50Light">#FCFCFD</Color>
+    <Color x:Key="Neutral50Dark">#051B39</Color>
+
+    <!--  Foundation Colors  -->
+    <Color x:Key="Foundation1Light">#FFFFFF</Color>
+    <Color x:Key="Foundation1Dark">#000000</Color>
+
+    <Color x:Key="Foundation2Light">#FCFCFC</Color>
+    <Color x:Key="Foundation2Dark">#141414</Color>
+
+    <Color x:Key="Foundation3Light">#F5F5F5</Color>
+    <Color x:Key="Foundation3Dark">#1F1F1F</Color>
+
+    <Color x:Key="Foundation4Light">#F0F0F0</Color>
+    <Color x:Key="Foundation4Dark">#262626</Color>
+
+    <Color x:Key="Foundation5Light">#D9D9D9</Color>
+    <Color x:Key="Foundation5Dark">#454545</Color>
+
+    <Color x:Key="Foundation6Light">#BFBFBF</Color>
+    <Color x:Key="Foundation6Dark">#595959</Color>
+
+    <Color x:Key="Foundation7Light">#8C8C8C</Color>
+    <Color x:Key="Foundation7Dark">#8C8C8C</Color>
+
+    <Color x:Key="Foundation8Light">#595959</Color>
+    <Color x:Key="Foundation8Dark">#BFBFBF</Color>
+
+    <Color x:Key="Foundation9Light">#454545</Color>
+    <Color x:Key="Foundation9Dark">#D9D9D9</Color>
+
+    <Color x:Key="Foundation10Light">#262626</Color>
+    <Color x:Key="Foundation10Dark">#F0F0F0</Color>
+
+    <Color x:Key="Foundation11Light">#1F1F1F</Color>
+    <Color x:Key="Foundation11Dark">#F5F5F5</Color>
+
+    <Color x:Key="Foundation12Light">#141414</Color>
+    <Color x:Key="Foundation12Dark">#FCFCFC</Color>
+
+    <Color x:Key="Foundation13Light">#000000</Color>
+    <Color x:Key="Foundation13Dark">#FFFFFF</Color>
+
+    <!--  Semantic Colors - Success  -->
+    <Color x:Key="Success50Light">#E9F7ED</Color>
+    <Color x:Key="Success50Dark">#104820</Color>
+
+    <Color x:Key="Success100Light">#BBE5C7</Color>
+    <Color x:Key="Success100Dark">#145E29</Color>
+
+    <Color x:Key="Success200Light">#9BD8AC</Color>
+    <Color x:Key="Success200Dark">#1A7935</Color>
+
+    <Color x:Key="Success300Light">#6DC786</Color>
+    <Color x:Key="Success300Dark">#229C44</Color>
+
+    <Color x:Key="Success400Light">#51BC6F</Color>
+    <Color x:Key="Success400Dark">#25AB4B</Color>
+
+    <Color x:Key="Success500Light">#25AB4B</Color>
+    <Color x:Key="Success500Dark">#51BC6F</Color>
+
+    <Color x:Key="Success600Light">#229C44</Color>
+    <Color x:Key="Success600Dark">#6DC786</Color>
+
+    <Color x:Key="Success700Light">#1A7935</Color>
+    <Color x:Key="Success700Dark">#9BD8AC</Color>
+
+    <Color x:Key="Success800Light">#145E29</Color>
+    <Color x:Key="Success800Dark">#BBE5C7</Color>
+
+    <Color x:Key="Success900Light">#104820</Color>
+    <Color x:Key="Success900Dark">#E9F7ED</Color>
+
+    <!--  Semantic Colors - Information  -->
+    <Color x:Key="Information50Light">#E6EFFE</Color>
+    <Color x:Key="Information50Dark">#002A68</Color>
+
+    <Color x:Key="Information100Light">#B0CFFD</Color>
+    <Color x:Key="Information100Dark">#003688</Color>
+
+    <Color x:Key="Information200Light">#8AB7FB</Color>
+    <Color x:Key="Information200Dark">#0046AF</Color>
+
+    <Color x:Key="Information300Light">#5496FA</Color>
+    <Color x:Key="Information300Dark">#005AE1</Color>
+
+    <Color x:Key="Information400Light">#3382F9</Color>
+    <Color x:Key="Information400Dark">#0063F7</Color>
+
+    <Color x:Key="Information500Light">#0063F7</Color>
+    <Color x:Key="Information500Dark">#3382F9</Color>
+
+    <Color x:Key="Information600Light">#005AE1</Color>
+    <Color x:Key="Information600Dark">#5496FA</Color>
+
+    <Color x:Key="Information700Light">#0046AF</Color>
+    <Color x:Key="Information700Dark">#8AB7FB</Color>
+
+    <Color x:Key="Information800Light">#003688</Color>
+    <Color x:Key="Information800Dark">#B0CFFD</Color>
+
+    <Color x:Key="Information900Light">#002A68</Color>
+    <Color x:Key="Information900Dark">#E6EFFE</Color>
+
+    <!--  Semantic Colors - Warning  -->
+    <Color x:Key="Warning50Light">#FEF4E6</Color>
+    <Color x:Key="Warning50Dark">#683C04</Color>
+
+    <Color x:Key="Warning100Light">#FDDDB3</Color>
+    <Color x:Key="Warning100Dark">#884F05</Color>
+
+    <Color x:Key="Warning200Light">#FBCC8E</Color>
+    <Color x:Key="Warning200Dark">#AF6606</Color>
+
+    <Color x:Key="Warning300Light">#FAB55A</Color>
+    <Color x:Key="Warning300Dark">#E18308</Color>
+
+    <Color x:Key="Warning400Light">#F9A63A</Color>
+    <Color x:Key="Warning400Dark">#F79009</Color>
+
+    <Color x:Key="Warning500Light">#F79009</Color>
+    <Color x:Key="Warning500Dark">#F9A63A</Color>
+
+    <Color x:Key="Warning600Light">#E18308</Color>
+    <Color x:Key="Warning600Dark">#FAB55A</Color>
+
+    <Color x:Key="Warning700Light">#AF6606</Color>
+    <Color x:Key="Warning700Dark">#FBCC8E</Color>
+
+    <Color x:Key="Warning800Light">#884F05</Color>
+    <Color x:Key="Warning800Dark">#FDDDB3</Color>
+
+    <Color x:Key="Warning900Light">#683C04</Color>
+    <Color x:Key="Warning900Dark">#FEF4E6</Color>
+
+    <!--  Semantic Colors - Error  -->
+    <Color x:Key="Error50Light">#F8E7E9</Color>
+    <Color x:Key="Error50Dark">#4F0710</Color>
+
+    <Color x:Key="Error100Light">#EAB5BC</Color>
+    <Color x:Key="Error100Dark">#670915</Color>
+
+    <Color x:Key="Error200Light">#E0929C</Color>
+    <Color x:Key="Error200Dark">#850C1C</Color>
+
+    <Color x:Key="Error300Light">#D2606E</Color>
+    <Color x:Key="Error300Dark">#AB0F23</Color>
+
+    <Color x:Key="Error400Light">#C94152</Color>
+    <Color x:Key="Error400Dark">#BC1127</Color>
+
+    <Color x:Key="Error500Light">#BC1127</Color>
+    <Color x:Key="Error500Dark">#C94152</Color>
+
+    <Color x:Key="Error600Light">#AB0F23</Color>
+    <Color x:Key="Error600Dark">#D2606E</Color>
+
+    <Color x:Key="Error700Light">#850C1C</Color>
+    <Color x:Key="Error700Dark">#E0929C</Color>
+
+    <Color x:Key="Error800Light">#670915</Color>
+    <Color x:Key="Error800Dark">#EAB5BC</Color>
+
+    <Color x:Key="Error900Light">#4F0710</Color>
+    <Color x:Key="Error900Dark">#F8E7E9</Color>
+
+    <!--  Text Colors  -->
+    <Color x:Key="TextDefaultLight">#292929</Color>
+    <Color x:Key="TextDefaultDark">#FFFFFF</Color>
+
+    <Color x:Key="TextSecondaryLight">#454545</Color>
+    <Color x:Key="TextSecondaryDark">#D9D9D9</Color>
+
+    <Color x:Key="TextTertiaryLight">#8C8C8C</Color>
+    <Color x:Key="TextTertiaryDark">#8C8C8C</Color>
+
+    <Color x:Key="TextPlaceholderLight">#8C8C8C</Color>
+    <Color x:Key="TextPlaceholderDark">#8C8C8C</Color>
+
+    <Color x:Key="TextErrorLight">#BC1127</Color>
+    <Color x:Key="TextErrorDark">#C94152</Color>
+
+    <Color x:Key="TextSuccessLight">#51BC6F</Color>
+    <Color x:Key="TextSuccessDark">#6DC786</Color>
+
+    <Color x:Key="TextWarningLight">#F79009</Color>
+    <Color x:Key="TextWarningDark">#F9A63A</Color>
+
+    <Color x:Key="TextInfoLight">#0063F7</Color>
+    <Color x:Key="TextInfoDark">#3382F9</Color>
+
+
+    <Color x:Key="TextInverseLight">#FFFFFF</Color>
+    <Color x:Key="TextInverseDark">#292929</Color>
+
+    <Color x:Key="Text1Light">#1D2939</Color>
+    <Color x:Key="Text1Dark">#FFFFFF</Color>
+
+    <Color x:Key="Text2Light">#667085</Color>
+    <Color x:Key="Text2Dark">#D0D5DD</Color>
+
+    <Color x:Key="Text3Light">#98A2B3</Color>
+    <Color x:Key="Text3Dark">#98A2B3</Color>
+
+    <!--  Accent Colors  -->
+    <Color x:Key="AccentWhiteLight">#FFFFFF</Color>
+    <Color x:Key="AccentWhiteDark">#000000</Color>
+
+    <Color x:Key="AccentBlackLight">#0B0D10</Color>
+    <Color x:Key="AccentBlackDark">#FFFFFF</Color>
+
+    <Color x:Key="AccentRedLight">#FF5F2B</Color>
+    <Color x:Key="AccentRedDark">#FF7C52</Color>
+
+    <Color x:Key="AccentYellowLight">#FDC500</Color>
+    <Color x:Key="AccentYellowDark">#FEC920</Color>
+
+    <Color x:Key="AccentNaturalBlueBlueLight">#2E90FA</Color>
+    <Color x:Key="AccentNaturalBlueBlueDark">#5496FA</Color>
+
+    <Color x:Key="AccentNaturalIndigoIndigoLight">#6172F3</Color>
+    <Color x:Key="AccentNaturalIndigoIndigoDark">#8AB7FB</Color>
+
+    <Color x:Key="AccentNaturalPurplePurpleLight">#7A5AF8</Color>
+    <Color x:Key="AccentNaturalPurplePurpleDark">#9BD8AC</Color>
+
+    <Color x:Key="AccentNaturalPinkPinkLight">#EE46BC</Color>
+    <Color x:Key="AccentNaturalPinkPinkDark">#FAB55A</Color>
+
+    <Color x:Key="AccentNaturalRoseRoseLight">#F63D68</Color>
+    <Color x:Key="AccentNaturalRoseRoseDark">#F9A63A</Color>
+
+    <Color x:Key="AccentNaturalOrangeOrangeLight">#FB6514</Color>
+    <Color x:Key="AccentNaturalOrangeOrangeDark">#FBCC8E</Color>
+    <!--  Primary Colors  -->
+    <Color x:Key="Primary900">#133D6B</Color>
+    <Color x:Key="Primary800">#19508C</Color>
+    <Color x:Key="Primary700">#2168B5</Color>
+    <Color x:Key="Primary600">#569FFF</Color>
+    <Color x:Key="Primary500">#2E92FF</Color>
+    <Color x:Key="Primary400">#58A8FF</Color>
+    <Color x:Key="Primary300">#73B6FF</Color>
+    <Color x:Key="Primary200">#9FCDFF</Color>
+    <Color x:Key="Primary100">#BEDDFF</Color>
+    <Color x:Key="Primary50">#EAF4FF</Color>
+
+    <!--  Secondary Colors  -->
+    <Color x:Key="Secondary900">#134920</Color>
+    <Color x:Key="Secondary800">#195F29</Color>
+    <Color x:Key="Secondary700">#217B35</Color>
+    <Color x:Key="Secondary600">#2A9D44</Color>
+    <Color x:Key="Secondary500">#2EAD4B</Color>
+    <Color x:Key="Secondary400">#58BD6F</Color>
+    <Color x:Key="Secondary300">#73C886</Color>
+    <Color x:Key="Secondary200">#9FD9AC</Color>
+    <Color x:Key="Secondary100">#BEE6C7</Color>
+    <Color x:Key="Secondary50">#EAF7ED</Color>
+
+    <!--  Neutral Colors  -->
+    <!--<Color x:Key="Neutral25">#051B39</Color>-->
+    <Color x:Key="Neutral900">#101828</Color>
+    <Color x:Key="Neutral800">#1D2939</Color>
+    <Color x:Key="Neutral700">#344054</Color>
+    <Color x:Key="Neutral600">#667085</Color>
+    <Color x:Key="Neutral500">#98A2B3</Color>
+    <Color x:Key="Neutral400">#D0D5DD</Color>
+    <Color x:Key="Neutral300">#EAECF0</Color>
+    <Color x:Key="Neutral200">#F2F4F7</Color>
+    <Color x:Key="Neutral100">#F6F6F6</Color>
+    <Color x:Key="Neutral50">#FCFCFD</Color>
+
+    <!--  Foundation Colors  -->
+    <Color x:Key="Foundation1">#FFFFFF</Color>
+    <Color x:Key="Foundation2">#FCFCFC</Color>
+    <Color x:Key="Foundation3">#F5F5F5</Color>
+    <Color x:Key="Foundation4">#F0F0F0</Color>
+    <Color x:Key="Foundation5">#D9D9D9</Color>
+    <Color x:Key="Foundation6">#BFBFBF</Color>
+    <Color x:Key="Foundation7">#8C8C8C</Color>
+    <Color x:Key="Foundation8">#595959</Color>
+    <Color x:Key="Foundation9">#454545</Color>
+    <Color x:Key="Foundation10">#262626</Color>
+    <Color x:Key="Foundation11">#1F1F1F</Color>
+    <Color x:Key="Foundation12">#141414</Color>
+    <Color x:Key="Foundation13">#000000</Color>
+
+    <!--  Semantic Colors  -->
+    <!--  Success  -->
+    <Color x:Key="Success50">#E9F7ED</Color>
+    <Color x:Key="Success100">#BBE5C7</Color>
+    <Color x:Key="Success200">#9BD8AC</Color>
+    <Color x:Key="Success300">#6DC786</Color>
+    <Color x:Key="Success400">#51BC6F</Color>
+    <Color x:Key="Success500">#25AB4B</Color>
+    <Color x:Key="Success600">#229C44</Color>
+    <Color x:Key="Success700">#1A7935</Color>
+    <Color x:Key="Success800">#145E29</Color>
+    <Color x:Key="Success900">#104820</Color>
+
+    <!--  Information  -->
+    <Color x:Key="Information50">#E6EFFE</Color>
+    <Color x:Key="Information100">#B0CFFD</Color>
+    <Color x:Key="Information200">#8AB7FB</Color>
+    <Color x:Key="Information300">#5496FA</Color>
+    <Color x:Key="Information400">#3382F9</Color>
+    <Color x:Key="Information500">#0063F7</Color>
+    <Color x:Key="Information600">#005AE1</Color>
+    <Color x:Key="Information700">#0046AF</Color>
+    <Color x:Key="Information800">#003688</Color>
+    <Color x:Key="Information900">#002A68</Color>
+
+    <!--  Warning  -->
+    <Color x:Key="Warning50">#FEF4E6</Color>
+    <Color x:Key="Warning100">#FDDDB3</Color>
+    <Color x:Key="Warning200">#FBCC8E</Color>
+    <Color x:Key="Warning300">#FAB55A</Color>
+    <Color x:Key="Warning400">#F9A63A</Color>
+    <Color x:Key="Warning500">#F79009</Color>
+    <Color x:Key="Warning600">#E18308</Color>
+    <Color x:Key="Warning700">#AF6606</Color>
+    <Color x:Key="Warning800">#884F05</Color>
+    <Color x:Key="Warning900">#683C04</Color>
+
+    <!--  Error  -->
+    <Color x:Key="Error50">#F8E7E9</Color>
+    <Color x:Key="Error100">#EAB5BC</Color>
+    <Color x:Key="Error200">#E0929C</Color>
+    <Color x:Key="Error300">#D2606E</Color>
+    <Color x:Key="Error400">#C94152</Color>
+    <Color x:Key="Error500">#BC1127</Color>
+    <Color x:Key="Error600">#AB0F23</Color>
+    <Color x:Key="Error700">#850C1C</Color>
+    <Color x:Key="Error800">#670915</Color>
+    <Color x:Key="Error900">#4F0710</Color>
+
+    <!--  Text Colors  -->
+    <Color x:Key="TextDefault">#292929</Color>
+    <Color x:Key="TextSecondary">#454545</Color>
+    <Color x:Key="TextTertiary">#8C8C8C</Color>
+    <Color x:Key="TextPlaceholder">#8C8C8C</Color>
+    <Color x:Key="TextError">#BC1127</Color>
+    <Color x:Key="TextSuccess">#51BC6F</Color>
+    <Color x:Key="TextWarning">#F79009</Color>
+    <Color x:Key="TextInfo">#0063F7</Color>
+    <Color x:Key="TextInverse">#FFFFFF</Color>
+
+    <!--  Accent Colors  -->
+
+    <Color x:Key="AccentWhite">#FFFFFF</Color>
+    <Color x:Key="AccentBlack">#0B0D10</Color>
+    <Color x:Key="AccentRed">#FF5F2B</Color>
+    <Color x:Key="AccentYellow">#FDC500</Color>
+    <Color x:Key="AccentNaturalBlueBlue">#2E90FA</Color>
+    <Color x:Key="AccentNaturalIndigoIndigo">#6172F3</Color>
+    <Color x:Key="AccentNaturalPurplePurple">#7A5AF8</Color>
+    <Color x:Key="AccentNaturalPinkPink">#EE46BC</Color>
+    <Color x:Key="AccentNaturalRoseRose">#F63D68</Color>
+    <Color x:Key="AccentNaturalOrangeOrange">#FB6514</Color>
+
+
+    <!--  Text Colors  -->
+    <Color x:Key="Text1">#1D2939</Color>
+    <Color x:Key="Text2">#667085</Color>
+    <Color x:Key="Text3">#98A2B3</Color>
+
+
+    <!--  Note: For Android please see also Platforms\Android\Resources\values\colors.xml  -->
+    <Color x:Key="DarkBackgroundColor">#121212</Color>
+    <Color x:Key="LightBackgroundColor">#FFFFFFFF</Color>
+    <Color x:Key="DarkColor">#121212</Color>
+    <Color x:Key="DarkColor100">#212020</Color>
+    <Color x:Key="LightColor">#FFFFFFFF</Color>
+    <Color x:Key="HeaderTextColor">#171717</Color>
+    <Color x:Key="SecondTextColor">#616977</Color>
+    <Color x:Key="DarkTextBoxBgColor">#212020</Color>
+    <Color x:Key="LightTextBoxBgColor">#F4F5F6</Color>
+    <Color x:Key="DarkBorderColor">#37485C</Color>
+    <Color x:Key="LightBorderColor">#E4E4E4</Color>
+    <Color x:Key="NpBlue">#2969FF</Color>
+    <Color x:Key="BorderBGColorLight">#F4F5F6</Color>
+    <Color x:Key="NpBlue100">#0044A2</Color>
+    <Color x:Key="NpDark100">#13263A</Color>
+    <Color x:Key="NpGray100">#95A4B7</Color>
+    <Color x:Key="NpBlack100">#3C3B3B</Color>
+    <Color x:Key="NpGreen">#2DB644</Color>
+    <Color x:Key="NpRed">#EC1313</Color>
+
+
+    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="PrimaryDark">#ac99ea</Color>
+    <Color x:Key="PrimaryDarkText">#242424</Color>
+    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="SecondaryDarkText">#9880e5</Color>
+    <Color x:Key="Tertiary">#2B0B98</Color>
+
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Magenta">#D600AA</Color>
+    <Color x:Key="MidnightBlue">#190649</Color>
+    <Color x:Key="OffBlack">#1f1f1f</Color>
+
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
+    <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}" />
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}" />
+
+    <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}" />
+    <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}" />
+    <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}" />
+    <SolidColorBrush x:Key="Gray400Brush" Color="{StaticResource Gray400}" />
+    <SolidColorBrush x:Key="Gray500Brush" Color="{StaticResource Gray500}" />
+    <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}" />
+    <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}" />
+    <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}" />
+</ResourceDictionary>

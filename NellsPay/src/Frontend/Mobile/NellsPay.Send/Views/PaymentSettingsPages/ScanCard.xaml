@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentSettingsPages.ScanCard"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+    Title="ScanCard"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                 Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False">
+    <Grid
+        Padding="0,0,0,0"
+        RowDefinitions="Auto,*"
+        RowSpacing="15">
+
+        <Grid Grid.RowSpan="2" VerticalOptions="Fill">
+            <controls:CameraView
+                x:Name="cameraReaderView"
+                HorizontalOptions="Fill"
+                IsTorchOn="False"
+                VerticalOptions="Fill" />
+
+            <Image
+                x:Name="document"
+                Aspect="Fill"
+                Source="document.png" />
+
+            <VerticalStackLayout VerticalOptions="End">
+
+                <Grid Margin="16" ColumnDefinitions="50,*,50">
+
+
+
+                    <ImageButton
+                        Grid.Column="1"
+                        Clicked="OnCaptureClicked"
+                        HeightRequest="60"
+                        Source="capture.png"
+                        VerticalOptions="End" />
+                </Grid>
+            </VerticalStackLayout>
+
+
+        </Grid>
+        <Grid Margin="16" ColumnDefinitions="50,*,50">
+            <Button
+                x:Name="BackButton"
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{DynamicResource AccentWhiteLight}"
+                Clicked="BackButton_Clicked"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{DynamicResource Neutral800Light}" />
+
+            <Button
+                x:Name="FlashButton"
+                Grid.Column="2"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Clicked="FlashButton_Clicked_1"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconFlash}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+        </Grid>
+        <VerticalStackLayout
+            Grid.Row="1"
+            Margin="10,0,10,0"
+            Spacing="10">
+            <Label
+                x:Name="Label1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource H2SemiBold24}"
+                Text=" Step : 1/2"
+                TextColor="{DynamicResource AccentWhite}"
+                VerticalTextAlignment="Start" />
+            <Border
+                Margin="16"
+                BackgroundColor="#33C3D8FB"
+                Style="{DynamicResource MainBorderStyle}"
+                VerticalOptions="Fill">
+                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                    <Label
+                        FontSize="18"
+                        Style="{DynamicResource LabelIconeStyle}"
+                        Text="{DynamicResource IconInfo}"
+                        TextColor="{DynamicResource AccentWhite}" />
+                    <Label
+                        x:Name="Label2"
+                        Grid.Column="1"
+                        Style="{DynamicResource BodyMedium12}"
+                        Text=" Place the frontside of your card in square"
+                        TextColor="{DynamicResource AccentWhite}"
+                        VerticalTextAlignment="Center" />
+
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

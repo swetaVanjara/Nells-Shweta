@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="NellsPay.Send.Views.PaymentSettingsPages.AddCardSuccessfullyPopUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    HorizontalOptions="Fill"
+    VerticalOptions="End"
+    Color="Transparent">
+    <Grid x:Name="PopupContent" ColumnDefinitions="*">
+        <Border
+            StrokeShape="RoundRectangle 20,20,0,0"
+            StrokeThickness="0"
+            Style="{DynamicResource BorderBackground}">
+            <Grid
+                Padding="20,5,20,20"
+                RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                RowSpacing="20">
+                <Grid HeightRequest="30">
+                    <Border
+                        Margin="0,5,0,0"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                          Dark={DynamicResource Neutral300Dark}}"
+                        HeightRequest="4"
+                        StrokeShape="RoundRectangle 2"
+                        StrokeThickness="0"
+                        VerticalOptions="Start"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Border
+                    Grid.Row="1"
+                    Margin="1"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                      Dark={DynamicResource AccentWhiteDark}}"
+                    HeightRequest="40"
+                    StrokeShape="RoundRectangle 20"
+                    StrokeThickness="2"
+                    Stroke="#32AF4E"
+                    VerticalOptions="Start"
+                    WidthRequest="40">
+                    <Label
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="fontelloicon"
+                        FontSize="18"
+                       
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static Icons:FontIconFontello.Ok}"
+                        TextColor="#32AF4E"
+                        VerticalTextAlignment="Center"
+                         />
+
+
+                </Border>
+                <StackLayout
+                    Grid.Row="2"
+                    Margin="0,0,0,20"
+                    Spacing="10">
+                    <Label
+                        x:Name="PopUpTitle"
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource BodySemiBold20}"
+                        Text="Card added successfully"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>
+                <Border
+                    Grid.Row="3"
+                    Padding="0,0,0,0"
+                    HeightRequest="184"
+                    HorizontalOptions="Fill"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0">
+                    <Grid>
+                        <Image
+                            Grid.RowSpan="2"
+                            Aspect="Fill"
+                            HorizontalOptions="Fill"
+                            Source="cards.png"
+                            VerticalOptions="Fill" />
+                        <Grid RowDefinitions="Auto,*">
+
+                            <Grid Margin="16" ColumnDefinitions="*,53">
+                                <Image
+                                    Grid.Column="1"
+                                    HeightRequest="32"
+                                    Source="mastercard.pg" />
+                            </Grid>
+                            <Grid Grid.Row="1" Margin="16">
+                                <VerticalStackLayout Spacing="10" VerticalOptions="End">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            BackgroundColor="Transparent"
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular16}"
+                                            Text="{Binding Card.CardHolderName}"
+                                            TextColor="#FCFCFC"
+                                            VerticalTextAlignment="Center" />
+                                        <Label
+                                            Grid.Column="1"
+                                            BackgroundColor="Transparent"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyRegular18}"
+                                            VerticalTextAlignment="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Card.ExpiredMonth}" TextColor="#FCFCFC" />
+                                                    <Span Text="/" TextColor="#FCFCFC" />
+                                                    <Span Text="{Binding Card.ExpiredYear}" TextColor="#FCFCFC" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </Grid>
+                                    <HorizontalStackLayout>
+                                        <Label
+                                            BackgroundColor="Transparent"
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular18}"
+                                            Text="{Binding Card.CardNumber}"
+                                             TextColor="#FCFCFC" 
+                                            VerticalTextAlignment="Center">
+                                    
+                                        </Label>
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
+
+
+
+                </Border>
+                <Button
+                    Grid.Row="4"
+                    Margin="0,20,0,0"
+                    Clicked="Button_Clicked"
+                    CornerRadius="25"
+                    Style="{DynamicResource PrimaryButtonStyle}"
+                    Text="Okay"
+                    TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                Dark={DynamicResource AccentWhiteDark}}" />
+            </Grid>
+        </Border>
+    </Grid>
+
+</toolkit:Popup>

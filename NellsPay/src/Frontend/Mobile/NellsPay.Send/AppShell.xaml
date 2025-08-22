@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="NellsPay.Send.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:mi="http://www.aathifmahir.com/dotnet/2022/maui/icons"
+    xmlns:models="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:views="clr-namespace:NellsPay.Send.Views"
+    xmlns:views2="clr-namespace:NellsPay.Send.Views.LoginPages"
+    BackgroundColor="{AppThemeBinding Light={DynamicResource LightBackgroundColor},
+                                      Dark={DynamicResource DarkBackgroundColor}}"
+    Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False">
+
+    <Shell.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}" StatusBarStyle="DarkContent" />
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}" StatusBarStyle="Default" />
+    </Shell.Behaviors>
+
+    <!--<ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:HomePage}"
+        Route="MainPage" />-->
+    <TabBar Title="Send">
+
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconHome1}"
+                    Size="20" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate views:HomePage}"
+                Route="HomePage" />
+        </Tab>
+        <Tab Title="Transactions">
+
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconChart1}"
+                    Size="20" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Transaction"
+                ContentTemplate="{DataTemplate views:TransactionPage}"
+                Route="TransactionPage" />
+        </Tab>
+        <Tab Title="Send Money">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconSwap}"
+                    Size="20" />
+            </Tab.Icon>
+
+            <ShellContent
+                Title="Send Money"
+                ContentTemplate="{DataTemplate views:SendMoneyPage}"
+                Route="SendMoneyPage" />
+        </Tab>
+
+        <Tab Title="Recipients">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconGroups1}"
+                    Size="20" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Recipients"
+                ContentTemplate="{DataTemplate views:RecipientPage}"
+                Route="RecipientPage" />
+        </Tab>
+        <Tab Title="Profile">
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconUser21}"
+                    Size="14" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Profile"
+                ContentTemplate="{DataTemplate views:ProfilePage}"
+                Route="ProfilePage" />
+        </Tab>
+
+    </TabBar>
+
+</Shell>

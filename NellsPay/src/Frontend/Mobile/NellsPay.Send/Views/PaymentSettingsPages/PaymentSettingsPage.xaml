@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentSettingsPages.PaymentSettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:model="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentSettingsViewModels"
+    x:DataType="viewmodels:PaymentSettingsVM"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False"
+    Shell.TabBarIsVisible="False"
+    >
+    <Grid
+        Margin="15,8,15,0"
+        RowDefinitions="Auto,*,150"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Payment Settings"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+            <Button
+                Grid.Column="2"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                  Dark={DynamicResource Neutral800Dark}}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconDot}" />
+        </Grid>
+
+        <CollectionView
+            x:Name="CardCollection"
+            Grid.Row="1"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding Cards}"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.Header>
+                <BoxView BackgroundColor="Transparent" HeightRequest="20" />
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CardsModel">
+                    <Border
+                        x:Name="Item"
+                        Style="{DynamicResource BaseBorderStyle}"
+                        Padding="16"
+                        StrokeThickness="0"
+                        
+                        
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+          Dark={DynamicResource AccentWhiteDark}}"
+                        >
+                        <Grid ColumnDefinitions="70,*,50" ColumnSpacing="10">
+                            <Border StrokeThickness="0" Padding="0,0,0,0" StrokeShape="RoundRectangle 4">
+                                <Image Aspect="AspectFill" Source="cardlast.png" />
+                            </Border>
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="5"
+                                VerticalOptions="Center">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold16}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="SFBlackBold"
+                                                FontSize="12"
+                                                Text="{Binding CardType}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Span
+                                                FontFamily="SFBlackBold"
+                                                FontSize="12"
+                                                Text=" - "
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Span
+                                                FontFamily="SFBlackBold"
+                                                FontSize="12"
+                                                Text="{Binding LastFourDigits}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    FontFamily="SFBlackMedium"
+                                    FontSize="24"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyRegular14}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                Dark={DynamicResource Text2Dark}}"
+                                    VerticalTextAlignment="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span
+                                                FontFamily="SFRegular"
+                                                FontSize="12"
+                                                Text="Expires on: "
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Span
+                                                FontFamily="SFRegular"
+                                                FontSize="12"
+                                                Text="{Binding ExpiredMonth}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Span
+                                                FontFamily="SFRegular"
+                                                FontSize="12"
+                                                Text="/"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Span
+                                                FontFamily="SFRegular"
+                                                FontSize="12"
+                                                Text="{Binding ExpiredYear}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Button
+                                Grid.Column="2"
+                                Padding="2,2,2,2"
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                  Dark={DynamicResource AccentWhiteDark}}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.DeleteCommand}"
+                                CommandParameter="{Binding .}"
+                                HorizontalOptions="End"
+                                
+                                ImageSource="trash.png"
+                                Text="{DynamicResource IconBank}" />
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button
+            Grid.Row="2"
+            Command="{Binding AddNewCardCommand}"
+            ContentLayout="Left, 5"
+            CornerRadius="30"
+             BackgroundColor="{AppThemeBinding Light={DynamicResource Primary500Light},
+                                   Dark={DynamicResource Primary500Dark}}"
+            FontFamily="FBold"
+            HeightRequest="60"
+            TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                            Dark={DynamicResource AccentWhiteDark}}" 
+            Style="{DynamicResource PrimaryMDButtonStyle}"
+            Text="Add New Card"
+            VerticalOptions="Center">
+            <Button.ImageSource>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconPlus}"
+                    Size="16" />
+            </Button.ImageSource>
+        </Button>
+    </Grid>
+</ContentPage>

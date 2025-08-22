@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.LoginPages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.LoginViewModels"
+    x:DataType="viewmodels:LoginVM"
+    BackgroundColor="{DynamicResource PageBackground}"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    HideSoftInputOnTapped="True"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{DynamicResource PageBackground}"
+                StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid RowDefinitions="Auto,*"
+                RowSpacing="15">
+            <Grid Margin="15,30,15,0"
+                    ColumnDefinitions="50,*,50">
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource H1SemiBold28}"
+                    Text="Login"
+                    VerticalTextAlignment="Center"/>
+
+            </Grid>
+
+            <ScrollView
+                Grid.Row="1"
+                Padding="20"
+                HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never">
+
+                <Grid RowDefinitions="Auto,Auto,Auto,*"
+                        RowSpacing="10">
+                    <VerticalStackLayout Spacing="16">
+                        <Label
+                            HorizontalTextAlignment="Start"
+                            Style="{DynamicResource BodyMedium14}"
+                            Text="Email"
+                            TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}"
+                            VerticalTextAlignment="Center"/>
+                        <Border
+                            Padding="10,2"
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource  Neutral200Light},Dark={DynamicResource  Neutral200Dark}}"
+                            Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},Dark={DynamicResource Neutral300Dark}}"
+                            StrokeThickness="1"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <Grid ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="8">
+                                <Label
+                                    FontSize="16"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconEmail}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text3Light},Dark={DynamicResource Text3Dark}}"/>
+                                <Entry
+                                    Grid.Column="1"
+                                    FontFamily="FRegular"
+                                    FontSize="14"
+                                    Placeholder="Email"
+                                    PlaceholderColor="{AppThemeBinding Light={DynamicResource  Text3Light},Dark={DynamicResource  Text3Dark}}"
+                                    Text="{Binding Login.Email}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},Dark={DynamicResource Text1Dark}}"/>
+
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1"
+                            Spacing="16">
+                        <Label
+                            HorizontalTextAlignment="Start"
+                            Style="{DynamicResource BodyMedium14}"
+                            Text="Password"
+                            TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}"
+                            VerticalTextAlignment="Center"/>
+                        <Border
+                            Padding="10,2"
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource  Neutral200Light},Dark={DynamicResource  Neutral200Dark}}"
+                            Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},Dark={DynamicResource Neutral300Dark}}"
+                            StrokeThickness="1"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <Grid ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="8">
+                                <Label
+                                    FontSize="16"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconKey}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text3Light},Dark={DynamicResource Text3Dark}}"/>
+                                <Entry
+                                    Grid.Column="1"
+                                    FontFamily="FRegular"
+                                    FontSize="14"
+                                    IsPassword="True"
+                                    Placeholder="Password"
+                                    PlaceholderColor="{AppThemeBinding Light={DynamicResource  Text3Light},Dark={DynamicResource  Text3Dark}}"
+                                    Text="{Binding Login.Password}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},Dark={DynamicResource Text1Dark}}"/>
+
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+                    <Grid Grid.Row="2"
+                            ColumnDefinitions="*,*">
+                        <HorizontalStackLayout>
+                            <CheckBox Color="{DynamicResource Neutral800}"/>
+                            <Label
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="Remember me"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}"
+                                VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                        <Label
+                            Grid.Column="1"
+                            HorizontalTextAlignment="End"
+                            Style="{DynamicResource BodyMedium14}"
+                            Text="Forgot password?"
+                            TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}"
+                            VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding ForgetPasswordCommand}"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                    <VerticalStackLayout
+                        Grid.Row="3"
+                        Spacing="10"
+                        VerticalOptions="End">
+                        <Button
+                            Margin="0,20"
+                            BackgroundColor="{DynamicResource Primary500}"
+                            Command="{Binding LoginCommand}"
+                            CornerRadius="30"
+                            HeightRequest="60"
+                            IsVisible="True"
+                            Style="{DynamicResource PrimaryMDButtonStyle}"
+                            Text="Log In"/>
+                        <Grid ColumnDefinitions="*,Auto,*"
+                                ColumnSpacing="5">
+                            <BoxView
+                                BackgroundColor="{DynamicResource Neutral400}"
+                                HeightRequest="1"
+                                VerticalOptions="Center"/>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Center"
+                                Style="{DynamicResource BodyMedium12}"
+                                Text="Or"
+                                TextColor="{DynamicResource Neutral400}"
+                                VerticalTextAlignment="Center"/>
+                            <BoxView
+                                Grid.Column="2"
+                                BackgroundColor="{DynamicResource Neutral400}"
+                                HeightRequest="1"
+                                VerticalOptions="Center"/>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*"
+                                ColumnSpacing="20">
+
+                            <Button
+                                BackgroundColor="White"
+                                BorderColor="{DynamicResource Neutral300}"
+                                HeightRequest="60"
+                                BorderWidth="1"
+                                Command="{Binding GoogleCommand}"
+                                FontFamily="SFBlackMedium"
+                                ImageSource="google.png"
+                                TextColor="{DynamicResource Black}"/>
+                            <Button
+                                Grid.Column="1"
+                                BackgroundColor="White"
+                                HeightRequest="60"
+                                BorderColor="{DynamicResource Neutral300}"
+                                BorderWidth="1"
+                                Command="{Binding AppleCommand}"
+                                FontFamily="SFBlackMedium"
+                                ImageSource="apple.png"
+                                TextColor="{DynamicResource Black}"/>
+                        </Grid>
+                        <StackLayout Margin="20,20,20,0">
+                            <HorizontalStackLayout Grid.Row="3"
+                                    HorizontalOptions="Center">
+                                <Label
+                                    Style="{DynamicResource BodyRegular12}"
+                                    Text="By clicking you agree to our "
+                                    TextColor="{AppThemeBinding Light={DynamicResource  Neutral500Light},Dark={DynamicResource  Neutral500Dark}}"/>
+                                <Label
+                                    Style="{DynamicResource BodyRegular12}"
+                                    Text="Terms and Conditions"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding TermCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+
+                                <Label
+                                    Style="{DynamicResource BodyRegular12}"
+                                    Text=" and "
+                                    TextColor="{AppThemeBinding Light={DynamicResource  Neutral500Light},Dark={DynamicResource  Neutral500Dark}}"/>
+
+
+                            </HorizontalStackLayout>
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{DynamicResource BodyRegular12}"
+                                Text="Privacy Policy"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PrivacyCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                        <HorizontalStackLayout
+                            Grid.Row="3"
+                            Margin="0,20,0,50"
+                            HorizontalOptions="Center">
+                            <Label
+                                Style="{DynamicResource BodyRegular18}"
+                                Text="Don't have an account? "
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},Dark={DynamicResource Neutral800Dark}}"/>
+                            <Label
+                                InputTransparent="False"
+                                Style="{DynamicResource BodyRegular18}"
+                                Text="Sign Up"
+                                TextColor="{DynamicResource Information700}">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SignUpCommand}"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
+        <Grid
+            BackgroundColor="{AppThemeBinding Dark={StaticResource LightBackgroundColor}, Light={StaticResource DarkBackgroundColor}}"
+            Opacity="0.4"
+            IsVisible="{Binding IsLoading}"
+            InputTransparent="False"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ZIndex="99"/>
+
+        <!-- Layer 2: Spinner -->
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60"
+            Color="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}"
+            ZIndex="999"/>
+    </Grid>
+</ContentPage>

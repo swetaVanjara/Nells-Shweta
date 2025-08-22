@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.MoneyTransferFlowPages.TransferPinPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Receipt="clr-namespace:NellsPay.Send.Models"
+    xmlns:Svg="clr-namespace:NellsPay.Send.CustomControls"
+    Background="{AppThemeBinding Light={DynamicResource SuccesfullGradient},
+                                 Dark={DynamicResource AccentWhiteDark}}"
+    NavigationPage.HasNavigationBar="False">
+    <Grid Padding="16,16,16,0">
+
+        <Grid RowDefinitions="Auto,*"
+                RowSpacing="0">
+            <Grid ColumnDefinitions="50,*,50">
+                <Button
+                    Grid.Column="0"
+                    Padding="2,2,2,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                      Dark={DynamicResource AccentWhiteDark}}"
+                    Command="{Binding BackCommand}"
+                    Style="{DynamicResource LargeCircularIconButtonStyle}"
+                    Text="{DynamicResource IconChevronleft}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+
+
+                <Button
+                    Grid.Column="2"
+                    Padding="2,2,2,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                      Dark={DynamicResource AccentWhiteDark}}"
+                    Command="{Binding DownloadCommand}"
+                    Style="{DynamicResource LargeCircularIconButtonStyle}"
+                    Text="{DynamicResource IconDownload}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+            </Grid>
+            <ScrollView
+                Grid.Row="1"
+                HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never">
+                <VerticalStackLayout Spacing="0">
+                    <VerticalStackLayout Spacing="16">
+                        <VerticalStackLayout Spacing="16">
+                            <Image
+                                HeightRequest="85"
+                                Source="transfersuccssefull.png"
+                                WidthRequest="100"/>
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Style="{DynamicResource H1SemiBold28}"
+                                Text="Payment is successful!"
+                                TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                            Dark={DynamicResource AccentWhiteLight}}"
+                                VerticalTextAlignment="Center"/>
+                            <Label
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="{Binding TransactionDetails.RecipientName, StringFormat='Transfer to “{0}” is being processed'}"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                        Dark={DynamicResource AccentWhiteLight}}"/>
+                        </VerticalStackLayout>
+                        <Border
+                            Margin="0,20,0,0"
+                            Padding="0"
+                            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                         Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource BaseBorderStyle}">
+                            <Grid BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}"
+                                    RowDefinitions="Auto,Auto,1,Auto,1,Auto,1,Auto,Auto,Auto">
+                                <Border
+                                    BackgroundColor="{AppThemeBinding Light={DynamicResource Primary900},
+                                                                      Dark=#213653}"
+                                    HorizontalOptions="Center"
+                                    Style="{DynamicResource SecondBorderStyle2}">
+                                    <Grid ColumnDefinitions="Auto,Auto,Auto"
+                                            ColumnSpacing="8">
+                                        <Border
+                                            HeightRequest="48"
+                                            Stroke="White"
+                                            StrokeShape="RoundRectangle 24"
+                                            StrokeThickness="1"
+                                            WidthRequest="48">
+                                            <Svg:SvgImageView
+                                                Aspect="Fill"
+                                                SvgUrl="{Binding TransactionDetails.SenderFlag}"/>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding FirstCurrencyCommand}"/>
+                                            </Border.GestureRecognizers>
+                                        </Border>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="20"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconSwap}"
+                                            TextColor="{DynamicResource White}"/>
+                                        <Border
+                                            Grid.Column="2"
+                                            HeightRequest="48"
+                                            Stroke="White"
+                                            StrokeShape="RoundRectangle 24"
+                                            StrokeThickness="1"
+                                            WidthRequest="48">
+                                            <Svg:SvgImageView
+                                                Aspect="Fill"
+                                                SvgUrl="{Binding TransactionDetails.ReciverFlag}"/>
+                                            <Border.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding SecondCurrencyCommand}"/>
+                                            </Border.GestureRecognizers>
+                                        </Border>
+
+                                    </Grid>
+                                </Border>
+                                <VerticalStackLayout
+                                    Grid.Row="1"
+                                    Padding="16"
+                                    HorizontalOptions="Center"
+                                    Spacing="16">
+                                  <HorizontalStackLayout HorizontalOptions="Center"
+                                        Spacing="10">
+                                    <Label
+                                        HorizontalOptions="Center"
+                                        Style="{DynamicResource DisplaySemiBold32}"
+                                        Text="{Binding TransactionDetails.Amount}"
+                                        TextColor="{DynamicResource Secondary500}"
+                                        VerticalTextAlignment="Center"/>
+
+                                    <Label
+                                        HorizontalOptions="Center"
+                                         Style="{DynamicResource DisplaySemiBold32}"
+                                        Text="{Binding TransactionDetails.SenderCurrency}"
+                                        TextColor="{DynamicResource Secondary500}"
+                                        VerticalTextAlignment="Center"/>
+</HorizontalStackLayout>
+                                    <HorizontalStackLayout HorizontalOptions="Center"
+                                            Spacing="10">
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding TransactionDetails.TransferTime}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="*"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            HorizontalOptions="Center"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding TransactionDetails.TransferDate}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </HorizontalStackLayout>
+                                </VerticalStackLayout>
+                                <BoxView Grid.Row="2"
+                                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource Neutral300Dark}}"/>
+                                <Grid
+                                    Grid.Row="3"
+                                    Padding="16"
+                                    ColumnDefinitions="*,50,*">
+                                    <StackLayout Spacing="8">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Transfer amount"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <HorizontalStackLayout Spacing="5">
+                                            <Label
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding TransactionDetails.Transferamount}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center"/>
+
+                                            <Label
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding TransactionDetails.SenderCurrency}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center"/>
+
+                                        </HorizontalStackLayout>
+
+                                    </StackLayout>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="18"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconSwap}"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                    Dark={DynamicResource Neutral500Dark}}"/>
+                                    <StackLayout Grid.Column="2"
+                                            Spacing="8">
+                                        <Label
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Total to recipient"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <HorizontalStackLayout HorizontalOptions="End"
+                                                Spacing="5">
+                                            <Label
+                                                HorizontalTextAlignment="End"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding TransactionDetails.Totaltorecipient}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center"/>
+
+                                        </HorizontalStackLayout>
+
+                                    </StackLayout>
+                                </Grid>
+                                <BoxView Grid.Row="4"
+                                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource Neutral300Dark}}"/>
+                                <VerticalStackLayout
+                                    Grid.Row="5"
+                                    Margin="16"
+                                    Spacing="10">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Delivery method"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding TransactionDetails.Deliverymethod}"
+                                            TextColor="{DynamicResource Success500}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Transaction number"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding TransactionDetails.Transactionnumber}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                </VerticalStackLayout>
+                                <BoxView Grid.Row="6"
+                                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource Neutral300Dark}}"/>
+                                <VerticalStackLayout
+                                    Grid.Row="7"
+                                    Margin="16"
+                                    Spacing="10">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Transaction Date"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource HeaderLabelStyle}"
+                                            Text="{Binding TransactionDetails.TransactionDate}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Payment Status"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Border
+                                            Grid.Column="1"
+                                            Padding="10,5"
+                                            Background="#332EAD4B"
+                                            HeightRequest="30"
+                                            HorizontalOptions="End"
+                                            StrokeShape="RoundRectangle 15,15,15,15"
+                                            StrokeThickness="0"
+                                            VerticalOptions="Center">
+                                            <HorizontalStackLayout Spacing="5">
+                                                <Border
+                                                    HeightRequest="20"
+                                                    HorizontalOptions="Center"
+                                                    StrokeShape="RoundRectangle 10"
+                                                    StrokeThickness="0"
+                                                    VerticalOptions="End"
+                                                    WidthRequest="20">
+                                                    <Label
+                                                        FontSize="12"
+                                                        Style="{DynamicResource LabelIconeStyle}"
+                                                        TextColor="{DynamicResource AccentWhite}">
+                                                        <Label.Triggers>
+                                                            <DataTrigger
+                                                                Binding="{Binding TransactionDetails.Status}"
+                                                                TargetType="Label"
+                                                                Value="SendCompleted">
+                                                                <Setter Property="Text"
+                                                                        Value="{DynamicResource IconCheck}"/>
+                                                            </DataTrigger>
+
+                                                            <DataTrigger
+                                                                Binding="{Binding TransactionDetails.Status}"
+                                                                TargetType="Label"
+                                                                Value="NotCompleted">
+
+                                                                <Setter Property="Text"
+                                                                        Value="{DynamicResource IconClose}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger
+                                                                Binding="{Binding TransactionDetails.Status}"
+                                                                TargetType="Label"
+                                                                Value="Paused">
+
+                                                                <Setter Property="Text"
+                                                                        Value="{DynamicResource IconPause}"/>
+                                                            </DataTrigger>
+                                                            <DataTrigger
+                                                                Binding="{Binding TransactionDetails.Status}"
+                                                                TargetType="Label"
+                                                                Value="Successfull">
+
+                                                                <Setter Property="Text"
+                                                                        Value="{DynamicResource IconCheck}"/>
+                                                            </DataTrigger>
+                                                        </Label.Triggers>
+                                                    </Label>
+                                                    <Border.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Border"
+                                                            Value="Successfull">
+                                                            <Setter Property="BackgroundColor"
+                                                                    Value="{DynamicResource Success500}"/>
+
+                                                        </DataTrigger>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Border"
+                                                            Value="SendCompleted">
+                                                            <Setter Property="BackgroundColor"
+                                                                    Value="{DynamicResource Secondary500}"/>
+
+                                                        </DataTrigger>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Border"
+                                                            Value="Paused">
+                                                            <Setter Property="BackgroundColor"
+                                                                    Value="{DynamicResource AccentYellow}"/>
+
+                                                        </DataTrigger>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Border"
+                                                            Value="NotCompleted">
+                                                            <Setter Property="BackgroundColor"
+                                                                    Value="{DynamicResource AccentRed}"/>
+
+
+                                                        </DataTrigger>
+                                                    </Border.Triggers>
+                                                </Border>
+                                                <Label
+                                                    FontSize="14"
+                                                    Text="{Binding TransactionDetails.Status}"
+                                                    VerticalTextAlignment="Center">
+                                                    <Label.Triggers>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Label"
+                                                            Value="SendCompleted">
+                                                            <Setter Property="Text"
+                                                                    Value="Successful"/>
+                                                            <Setter Property="TextColor"
+                                                                    Value="{DynamicResource Success500}"/>
+                                                        </DataTrigger>
+
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Label"
+                                                            Value="NotCompleted">
+                                                            <Setter Property="TextColor"
+                                                                    Value="{DynamicResource Error500}"/>
+                                                            <Setter Property="Text"
+                                                                    Value="Faild"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger
+                                                            Binding="{Binding TransactionDetails.Status}"
+                                                            TargetType="Label"
+                                                            Value="Paused">
+                                                            <Setter Property="TextColor"
+                                                                    Value="{DynamicResource AccentYellow}"/>
+                                                            <Setter Property="Text"
+                                                                    Value="Paused"/>
+                                                        </DataTrigger>
+                                                    </Label.Triggers>
+                                                </Label>
+                                            </HorizontalStackLayout>
+                                            <Border.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding TransactionDetails.Status}"
+                                                    TargetType="Border"
+                                                    Value="SendCompleted">
+                                                    <Setter Property="BackgroundColor"
+                                                            Value="{DynamicResource Secondary50}"/>
+
+                                                </DataTrigger>
+                                                <DataTrigger
+                                                    Binding="{Binding TransactionDetails.Status}"
+                                                    TargetType="Border"
+                                                    Value="Paused">
+                                                    <Setter Property="BackgroundColor"
+                                                            Value="{DynamicResource Warning50}"/>
+
+                                                </DataTrigger>
+                                                <DataTrigger
+                                                    Binding="{Binding TransactionDetails.Status}"
+                                                    TargetType="Border"
+                                                    Value="NotCompleted">
+                                                    <Setter Property="BackgroundColor"
+                                                            Value="{DynamicResource Error50}"/>
+
+
+                                                </DataTrigger>
+                                            </Border.Triggers>
+                                        </Border>
+                                    </Grid>
+                                </VerticalStackLayout>
+
+
+                            </Grid>
+                        </Border>
+
+                    </VerticalStackLayout>
+                    <Grid Margin="0,-10,0,0"
+                            HeightRequest="32">
+                        <Image
+                            Aspect="Fill"
+                            HeightRequest="32"
+                            Source="union.png"/>
+                        <BoxView BackgroundColor="{AppThemeBinding Light=Transparent, Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="32"/>
+                    </Grid>
+                    <Button
+                        Margin="0,20"
+                        BackgroundColor="{DynamicResource Primary500}"
+                        Command="{Binding HomeCommand}"
+                        CornerRadius="30"
+                        HeightRequest="60"
+                        IsVisible="True"
+                        Style="{DynamicResource PrimaryMDButtonStyle}"
+                        Text="Home"/>
+                </VerticalStackLayout>
+
+            </ScrollView>
+        </Grid>
+
+    </Grid>
+</ContentPage>

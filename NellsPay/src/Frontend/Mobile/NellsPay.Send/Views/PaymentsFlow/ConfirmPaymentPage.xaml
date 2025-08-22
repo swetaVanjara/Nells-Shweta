@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentsFlow.ConfirmPaymentPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Model="clr-namespace:NellsPay.Send.Models.PamentFlow"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentsFlow"
+    x:DataType="viewmodels:ConfirmPaymentVM"
+    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                      Dark={DynamicResource AccentWhiteDark}}"
+    Shell.NavBarIsVisible="False">
+    <Grid
+        Padding="16,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="20">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                  Dark={DynamicResource Neutral100Dark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Confirm payment"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+        <StackLayout Grid.Row="1" Spacing="50">
+            <Border
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                HeightRequest="80"
+                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                         Dark={DynamicResource Neutral200Dark}}"
+                StrokeShape="RoundRectangle 40"
+                StrokeThickness="1"
+                WidthRequest="80">
+                <Label
+                    FontSize="70"
+                    Style="{DynamicResource LabelIconeStyle}"
+                    Text="{DynamicResource IconInfo}"
+                    TextColor="{DynamicResource Warning400}" />
+            </Border>
+
+            <Border
+                Padding="0,16"
+                Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                             Dark={DynamicResource Neutral100Dark}}"
+                StrokeThickness="0"
+                Style="{DynamicResource BaseBorderStyle}">
+                <StackLayout Spacing="20">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource BodySemiBold16}"
+                        Text="you are  about to pay"
+                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                    Dark={DynamicResource Text1Dark}}" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource DisplayBold32}"
+                        Text="{Binding Confirmpayment.Amount}"
+                        TextColor="{DynamicResource Secondary500}" />
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}" HeightRequest="1" />
+                    <VerticalStackLayout Padding="16,16" Spacing="10">
+                        <Grid ColumnDefinitions="*,*">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="Payee name"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                            Dark={DynamicResource Text2Dark}}"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="End"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="{Binding Confirmpayment.Payeename}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="payment method"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                            Dark={DynamicResource Text2Dark}}"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="End"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="{Binding Confirmpayment.PaymentMethod}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="Bank name"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                            Dark={DynamicResource Text2Dark}}"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="End"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="{Binding Confirmpayment.Bankname}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*,*">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="Account number"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                            Dark={DynamicResource Text2Dark}}"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="End"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="{Binding Confirmpayment.Accountnumber}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                    </VerticalStackLayout>
+
+
+                </StackLayout>
+
+            </Border>
+        </StackLayout>
+
+        <Button
+            Grid.Row="2"
+            Margin="0,0,0,30"
+            Command="{Binding AddBankCommand}"
+            CornerRadius="20"
+            FontFamily="FBold"
+            HeightRequest="60"
+            Style="{DynamicResource PrimaryMDButtonStyle}"
+            Text="Pay Now"
+            VerticalOptions="End" />
+    </Grid>
+</ContentPage>

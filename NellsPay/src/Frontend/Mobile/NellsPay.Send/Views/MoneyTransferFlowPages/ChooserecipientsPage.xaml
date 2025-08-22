@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.MoneyTransferFlowPages.ChooserecipientsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:local="clr-namespace:NellsPay.Send.Converters"
+    xmlns:model="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.MoneyTransferFlowViewModels"
+    x:DataType="viewmodels:ChooserecipientsVM"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid
+        Padding="16,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}"/>
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Choose recipients"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+            <Button
+                Grid.Column="2"
+                Padding="4,4,4,4"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource BorderBGColorLight},
+                                                  Dark={DynamicResource DarkColor100}}"
+                Command="{Binding OkCommand}"
+                CornerRadius="20"
+                HeightRequest="40"
+                IsVisible="False"
+                VerticalOptions="Center"
+                WidthRequest="40">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="fontelloicon"
+                        Glyph="{x:Static Icons:FontIconFontello.Ok}"
+                        Size="20"
+                        Color="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+                </Button.ImageSource>
+            </Button>
+        </Grid>
+        <Border
+            Grid.Row="1"
+            Padding="16,0"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                              Dark={DynamicResource AccentWhiteDark}}"
+            HeightRequest="44"
+            Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                     Dark={DynamicResource Neutral300Dark}}"
+            StrokeThickness="1"
+            Style="{DynamicResource MainBorderStyle}">
+            <Grid ColumnDefinitions="Auto,*"
+                    ColumnSpacing="8">
+                <Label
+                    FontSize="16"
+                    Style="{DynamicResource LabelIconeStyle}"
+                    Text="{DynamicResource IconSearch}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                Dark={DynamicResource Text3Dark}}"/>
+                <Entry
+                    Grid.Column="1"
+                    FontFamily="FRegular"
+                    FontSize="14"
+                    Placeholder="Search by name, email, phone no"
+                    PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                       Dark={DynamicResource Text3Dark}}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"/>
+
+            </Grid>
+        </Border>
+
+        <Grid
+            Grid.Row="2"
+            Margin="0,10,0,0"
+            RowDefinitions="Auto,*"
+            RowSpacing="16">
+            <VerticalStackLayout Spacing="16">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodySemiBold18}"
+                    Text="Favorite recipients"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"
+                    VerticalTextAlignment="Start"/>
+                <CollectionView
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding Favorites}"
+                    SelectionMode="None"
+                    HeightRequest="100"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="16"
+                                Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Footer>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipient">
+                            <Grid RowDefinitions="Auto,Auto"
+                                    RowSpacing="5">
+                                <Grid HeightRequest="74"
+                                        WidthRequest="74">
+                                    <Border
+                                        Margin="8"
+                                        BackgroundColor="{Binding Id, Converter={StaticResource RandomColorConverter}}"
+                                        HeightRequest="74"
+                                        StrokeShape="RoundRectangle 37"
+                                        StrokeThickness="0"
+                                        WidthRequest="74"/>
+                                    <Grid>
+                                        <Image
+                                            Aspect="AspectFill"
+                                            IsVisible="{Binding Image, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                                            Source="{Binding Image}"/>
+                                        <Label
+                                            HorizontalTextAlignment="Center"
+                                            IsVisible="{Binding Image, Converter={StaticResource StringIsNullOrEmptyConverter}}"
+                                            Style="{DynamicResource H2SemiBold24}"
+                                            Text="{Binding Initials}"
+                                            TextColor="#1D2939"
+                                            VerticalTextAlignment="Center"/>
+
+                                    </Grid>
+
+                                    <Border
+                                        Grid.Row="1"
+                                        HeightRequest="22"
+                                        HorizontalOptions="End"
+                                        Stroke="{DynamicResource PageBackground}"
+                                        StrokeShape="RoundRectangle 11"
+                                        StrokeThickness="2"
+                                        VerticalOptions="End"
+                                        WidthRequest="22">
+                                        <Image Source="{Binding CountryFlag}"/>
+                                    </Border>
+                                </Grid>
+                                <Label
+                                    Grid.Row="1"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource BodyRegular14}"
+                                    Text="{Binding FirstName}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseRecipientCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <Grid
+                Grid.Row="1"
+                Margin="0,10,0,0"
+                RowDefinitions="Auto,*">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodySemiBold18}"
+                    Text="All recipients"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"
+                    VerticalTextAlignment="Start"/>
+                <CollectionView
+                    x:Name="TransactionsCollection"
+                    Grid.Row="1"
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding RecipientList}"
+                    SelectionMode="None"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="8"
+                                Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Footer>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Recipient">
+                            <Border
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                  Dark={DynamicResource AccentWhiteDark}}"
+                                StrokeThickness="0"
+                                Style="{DynamicResource MainBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Grid ColumnDefinitions="Auto,Auto"
+                                            ColumnSpacing="16">
+                                        <Grid HeightRequest="48"
+                                                WidthRequest="48">
+                                            <Border
+                                                Margin="8"
+                                                BackgroundColor="{Binding Id, Converter={StaticResource RandomColorConverter}}"
+                                                HeightRequest="48"
+                                                StrokeShape="RoundRectangle 24"
+                                                StrokeThickness="0"
+                                                WidthRequest="48"/>
+                                            <Grid>
+                                                <Image
+                                                    Aspect="AspectFill"
+                                                    IsVisible="{Binding Image, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                                                    Source="{Binding Image}"/>
+                                                <Label
+                                                    HorizontalTextAlignment="Center"
+                                                    IsVisible="{Binding Image, Converter={StaticResource StringIsNullOrEmptyConverter}}"
+                                                    Style="{DynamicResource BodyBold14}"
+                                                    Text="{Binding Initials}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800},
+                                                                                Dark={DynamicResource Neutral800}}"
+                                                    VerticalTextAlignment="Center"/>
+
+                                            </Grid>
+                                            <Border
+                                                Grid.Row="1"
+                                                HeightRequest="16"
+                                                HorizontalOptions="End"
+                                                Stroke="{DynamicResource PageBackground}"
+                                                StrokeShape="RoundRectangle 11"
+                                                StrokeThickness="1"
+                                                VerticalOptions="End"
+                                                WidthRequest="16">
+                                                <Image Source="{Binding CountryFlag}"/>
+                                            </Border>
+                                        </Grid>
+                                        <VerticalStackLayout
+                                            Grid.Column="1"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding FullName}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="{Binding PhoneNumber}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                            Dark={DynamicResource Text2Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                    <Button
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseRecipientCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                    <Button
+                                        Grid.Column="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseFavoritesRecipientCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Style="{DynamicResource LargeTertiaryIconButtonStyle}"
+                                        Text="{DynamicResource IconStar1}"
+                                        TextColor="{DynamicResource Neutral300}">
+                                        <Button.Triggers>
+                                            <DataTrigger
+                                                Binding="{Binding IsFavorite}"
+                                                TargetType="Button"
+                                                Value="True">
+                                                <Setter Property="Text"
+                                                        Value="{DynamicResource IconStar2}"/>
+                                                <Setter Property="TextColor"
+                                                        Value="{DynamicResource AccentYellow}"/>
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

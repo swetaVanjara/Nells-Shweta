@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.MoneyTransferFlowPages.SendingReceivingCurrencyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:model="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.SendingReceivingCurrencyVM"
+    x:DataType="viewmodels:SendingReceivingCurrencyVM"
+    xmlns:Svg="clr-namespace:NellsPay.Send.CustomControls"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid
+        Padding="16,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}"/>
+            <Label
+                x:Name="Title"
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="{Binding TitlePage}"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+            <Button
+                Grid.Column="2"
+                Padding="4,4,4,4"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource BorderBGColorLight},
+                                                  Dark={DynamicResource DarkColor100}}"
+                Command="{Binding OkCommand}"
+                CornerRadius="20"
+                HeightRequest="40"
+                IsVisible="False"
+                Style="{DynamicResource IconButtonStyle}"
+                VerticalOptions="Center"
+                WidthRequest="40">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="fontelloicon"
+                        Glyph="{x:Static Icons:FontIconFontello.Ok}"
+                        Size="20"
+                        Color="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+                </Button.ImageSource>
+            </Button>
+        </Grid>
+        <Border
+            Grid.Row="1"
+            Padding="16,0"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                              Dark={DynamicResource AccentWhiteDark}}"
+            HeightRequest="44"
+            Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                     Dark={DynamicResource Neutral300Dark}}"
+            StrokeThickness="1"
+            Style="{DynamicResource MainBorderStyle}">
+            <Grid ColumnDefinitions="Auto,*"
+                    ColumnSpacing="8">
+                <Label
+                    FontSize="16"
+                    Style="{DynamicResource LabelIconeStyle}"
+                    Text="{DynamicResource IconSearch}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                Dark={DynamicResource Text3Dark}}"/>
+                <Entry
+                    Grid.Column="1"
+                    FontFamily="FRegular"
+                    FontSize="14"
+                    Placeholder="Search for receiving currency"
+                    PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                       Dark={DynamicResource Text3Dark}}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"/>
+
+            </Grid>
+        </Border>
+        <Grid
+            Grid.Row="2"
+            RowDefinitions="Auto,*"
+            RowSpacing="16">
+            <VerticalStackLayout Spacing="16"
+                    IsVisible="{Binding HasFavorites}">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodySemiBold18}"
+                    Text="Favorite currencies"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"
+                    VerticalTextAlignment="Start"/>
+                <CollectionView
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding Favorites}"
+                    SelectionMode="None"
+                    HeightRequest="100"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="16"
+                                Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Footer>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Currency">
+                            <Grid RowDefinitions="Auto,Auto"
+                                    RowSpacing="5">
+                                <Border
+                                    StrokeShape="RoundRectangle 37"
+                                    StrokeThickness="0"
+                                    HeightRequest="74"
+                                    WidthRequest="74">
+                                    <Svg:SvgImageView
+                                        Aspect="Fill"
+                                        SvgUrl="{Binding CountryFlag}"/>
+                                </Border>
+                                <Label
+                                    Grid.Row="1"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource BodyRegular14}"
+                                    Text="{Binding CurrencyCode}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Button
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseRecivingCurrencyCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid>
+
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </VerticalStackLayout>
+
+            <Grid
+                Grid.Row="1"
+                Margin="0,10,0,0"
+                RowDefinitions="Auto,*"
+                RowSpacing="10">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodySemiBold18}"
+                    Text="All currencies"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"
+                    VerticalTextAlignment="Start"/>
+                <CollectionView
+                    x:Name="TransactionsCollection"
+                    Grid.Row="1"
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding CurrencyList}"
+                    SelectionMode="None"
+                    VerticalScrollBarVisibility="Never">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout ItemSpacing="8"
+                                Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.Header>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Header>
+                    <CollectionView.Footer>
+                        <BoxView BackgroundColor="Transparent"
+                                HeightRequest="0"/>
+                    </CollectionView.Footer>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Currency">
+                            <Border
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                  Dark={DynamicResource AccentWhiteDark}}"
+                                StrokeThickness="0"
+                                Style="{DynamicResource MainBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Grid ColumnDefinitions="Auto,Auto"
+                                            ColumnSpacing="16">
+                                        <Border
+                                            StrokeShape="RoundRectangle 25"
+                                            StrokeThickness="0"
+                                            HeightRequest="50"
+                                            WidthRequest="50">
+                                            <Svg:SvgImageView
+                                                Aspect="Fill"
+                                                SvgUrl="{Binding CountryFlag}"/>
+                                        </Border>
+                                        <VerticalStackLayout
+                                            Grid.Column="1"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding Country}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="{Binding CurrencyCode}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                            Dark={DynamicResource Text2Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                        </VerticalStackLayout>
+                                    </Grid>
+                                    <Button
+                                        BackgroundColor="Transparent"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseRecivingCurrencyCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                    <Button
+    Grid.Column="1"
+    Style="{StaticResource LargeTertiaryIconButtonStyle}"
+    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.ChooseFavoritesCurrencyCommand}"
+    CommandParameter="{Binding .}">
+  <Button.Triggers>
+    <DataTrigger TargetType="Button" Binding="{Binding IsFavorite}" Value="True">
+      <Setter Property="Text" Value="{DynamicResource IconStar2}" />
+      <Setter Property="TextColor" Value="{DynamicResource AccentYellow}" />
+    </DataTrigger>
+    <DataTrigger TargetType="Button" Binding="{Binding IsFavorite}" Value="False">
+      <Setter Property="Text" Value="{DynamicResource IconStar1}" />
+      <Setter Property="TextColor" Value="{DynamicResource Neutral300}" />
+    </DataTrigger>
+  </Button.Triggers>
+</Button>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+
+                </CollectionView>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

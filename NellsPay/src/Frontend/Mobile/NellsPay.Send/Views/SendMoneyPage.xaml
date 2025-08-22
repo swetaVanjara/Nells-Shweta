@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.SendMoneyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels"
+    Title="SendMoneyPage"
+    xmlns:Svg="clr-namespace:NellsPay.Send.CustomControls"
+    x:DataType="viewmodels:SendMoneyViewModel"
+    HideSoftInputOnTapped="True"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                 Dark={DynamicResource AccentBlack}}"
+    xmlns:bottomSheet="clr-namespace:Syncfusion.Maui.Toolkit.BottomSheet;assembly=Syncfusion.Maui.Toolkit"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource AccentBlack}, Light={StaticResource Neutral100Light}}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid
+            Padding="20,20,20,0"
+            Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                        Dark={DynamicResource AccentBlack}}"
+            RowDefinitions="Auto,*"
+            RowSpacing="15">
+            <Grid ColumnDefinitions="50,*,50">
+
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Send Money"
+                    VerticalTextAlignment="Center" />
+
+            </Grid>
+            <ScrollView Grid.Row="1" VerticalScrollBarVisibility="Never">
+                <Grid RowDefinitions="*,Auto">
+                    <VerticalStackLayout Spacing="10">
+                        <Border Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}" Style="{DynamicResource MainBorderStyle}">
+                            <VerticalStackLayout Spacing="16">
+                                <Border
+                                    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                Dark={DynamicResource Neutral100Dark}}"
+                                    Stroke="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}"
+                                    StrokeThickness="1"
+                                    Style="{DynamicResource BaseBorderStyle}">
+                                    <Grid ColumnDefinitions="8*,1,4*">
+                                        <VerticalStackLayout Padding="16,16,16,5">
+                                            <Label
+                                                Style="{DynamicResource BodyMedium12}"
+                                                Text="You send"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                            Dark={DynamicResource Text3Dark}}" />
+                                            <Entry
+                                                FontFamily="FBold"
+                                                FontSize="20"
+                                                Keyboard="Numeric"
+                                                MaxLength="20"
+                                                Text="{Binding MoneySend}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                            Dark={DynamicResource Neutral800Dark}}"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                        </VerticalStackLayout>
+                                        <BoxView
+                                            Grid.Column="1"
+                                            BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                                            Dark={DynamicResource Neutral300Dark}}"
+                                            WidthRequest="0.5" />
+                                        <HorizontalStackLayout
+                                            Grid.Column="2"
+                                            Padding="16"
+                                            HorizontalOptions="Center"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+                                            <Border
+                                                HeightRequest="36"
+                                                StrokeShape="RoundRectangle 18"
+                                                StrokeThickness="0"
+                                                WidthRequest="36">
+                                                <Svg:SvgImageView
+                                                    Aspect="Fill"
+                                                    SvgUrl="{Binding CurrencySend.CountryFlag}"/>
+                                            </Border>
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding CurrencySend.CurrencyCode}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                            Dark={DynamicResource Neutral800Dark}}"
+                                                VerticalTextAlignment="Center" />
+                                        </HorizontalStackLayout>
+                                        <!--<Button
+                                            Grid.Column="2"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding SendCommand}" />-->
+                                    </Grid>
+                                </Border>
+                                <Border Background="{AppThemeBinding Light=#EDFAF1, Dark=#1A2EAD4B}" Style="{DynamicResource MainBorderStyle}">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <HorizontalStackLayout Spacing="5">
+                                            <Label
+                                                FontSize="18"
+                                                Style="{DynamicResource LabelIconeStyle}"
+                                                Text="{DynamicResource IconSend}"
+                                                TextColor="{DynamicResource Success500}" />
+                                            <Label
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="transfer fees"
+                                                TextColor="{DynamicResource Success500}"
+                                                VerticalTextAlignment="Center" />
+                                        </HorizontalStackLayout>
+
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodySemiBold14}"
+                                            Text="FREE"
+                                            TextColor="{DynamicResource Success500}">
+                                            <Label.Triggers>
+                                                <DataTrigger
+                                                    Binding="{Binding Fees}"
+                                                    TargetType="Label"
+                                                    Value="False">
+                                                    <Setter Property="TextColor" Value="{DynamicResource Success500}" />
+                                                    <Setter Property="Text" Value="FREE" />
+
+                                                </DataTrigger>
+                                                <DataTrigger
+                                                    Binding="{Binding Fees}"
+                                                    TargetType="Label"
+                                                    Value="True">
+                                                    <Setter Property="TextColor" Value="{DynamicResource Success500}" />
+                                                    <Setter Property="Text" Value="{Binding FeesAmount}" />
+
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+
+                                    </Grid>
+                                </Border>
+                                <Border
+                                    Padding="16"
+                                    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                Dark={DynamicResource Neutral100Dark}}"
+                                    StrokeThickness="0"
+                                    Style="{DynamicResource BaseBorderStyle}">
+                                    <Grid ColumnDefinitions="35*,65*">
+                                        <Label
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Exchange Rate:"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}" />
+                                        <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End">
+                                            <HorizontalStackLayout  Grid.Column="1">
+                                                <Label
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="1.00 "
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                                Dark={DynamicResource Neutral800Dark}}" />
+                                                <Label
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ExchangeRateFrom}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                                Dark={DynamicResource Neutral800Dark}}" />
+                                            </HorizontalStackLayout>
+                                            <Label
+                                                Margin="5,0"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="="
+                                                TextColor="{DynamicResource Neutral400}" />
+                                            <HorizontalStackLayout Grid.Column="1" Spacing="2">
+                                                <Label
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ExchangeRate}"
+                                                    TextColor="{DynamicResource Secondary500}" />
+                                                <Label
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ExchangeRateTo}"
+                                                    TextColor="{DynamicResource Secondary500}" />
+                                            </HorizontalStackLayout>
+                                        </HorizontalStackLayout>
+
+
+                                    </Grid>
+                                </Border>
+                                <Border
+                                    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                Dark={DynamicResource Neutral100Dark}}"
+                                    Stroke="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}"
+                                    StrokeThickness="1"
+                                    Style="{DynamicResource BaseBorderStyle}">
+                                    <Grid ColumnDefinitions="8*,1,4*">
+                                        <VerticalStackLayout Padding="16,16,16,5">
+                                            <Label
+                                                Style="{DynamicResource BodyMedium12}"
+                                                Text="Receiver will get"
+                                                TextColor="{DynamicResource Neutral400}" />
+                                            <Entry
+                                                FontFamily="FBold"
+                                                FontSize="20"
+                                                Keyboard="Numeric"
+                                                MaxLength="20"
+                                                Text="{Binding MoneyRecive}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                            Dark={DynamicResource Neutral800Dark}}"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center" />
+                                        </VerticalStackLayout>
+                                        <BoxView
+                                            Grid.Column="1"
+                                            BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                                            Dark={DynamicResource Neutral300Dark}}"
+                                            WidthRequest="0.5" />
+                                        <HorizontalStackLayout
+                                            Grid.Column="2"
+                                            Padding="16"
+                                            HorizontalOptions="Center"
+                                            Spacing="5"
+                                            VerticalOptions="Center">
+
+                                            <Border
+                                                HeightRequest="36"
+                                                StrokeShape="RoundRectangle 18"
+                                                StrokeThickness="0"
+                                                WidthRequest="36">
+                                                <!-- <Image Source="{Binding CurrencyRecive.Flag}" /> -->
+                                                <Svg:SvgImageView
+                                                    Aspect="Fill"
+                                                    SvgUrl="{Binding CurrencyRecive.CountryFlag}"/>
+                                            </Border>
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding CurrencyRecive.CurrencyCode}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                HorizontalTextAlignment="Center"
+                                                Style="{DynamicResource LabelIconeStyle}"
+                                                Text="{DynamicResource IconChevrondown}"
+                                                VerticalTextAlignment="Center" />
+                                        </HorizontalStackLayout>
+                                        <Button
+                                            Grid.Column="2"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding RecieveCommand}" />
+
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Border>
+                        <Border Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}" Style="{DynamicResource MainBorderStyle}">
+                            <VerticalStackLayout Spacing="16">
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyMedium14}"
+                                    Text="Delivery method"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Center" />
+                                <Border Style="{DynamicResource MainEntryBorderStyle}">
+                                    <Grid ColumnDefinitions="*,Auto">
+
+                                        <Grid
+                                            ColumnDefinitions="Auto,*"
+                                            ColumnSpacing="10"
+                                            HorizontalOptions="Fill"
+                                            VerticalOptions="Center">
+                                            <Grid.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding OpenPopupCommand}"/>
+                                            </Grid.GestureRecognizers>
+                                            <Label
+                                                FontSize="20"
+                                                HorizontalTextAlignment="Center"
+                                                Style="{DynamicResource LabelIconeStyle}"
+                                                Text="{DynamicResource IconBank}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral400Light},
+                                                                            Dark={DynamicResource Neutral400Dark}}"
+                                                VerticalTextAlignment="Center" />
+                                            <Label
+                                                Grid.Column="1"
+                                                FontSize="15"
+                                                FontFamily="FMedium"
+                                                HorizontalTextAlignment="Start"
+                                                Text="{Binding SelectedPayment}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                                VerticalTextAlignment="Center" />
+                                        </Grid>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconChevrondown}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                        Dark={DynamicResource Text3Dark}}"
+                                            VerticalTextAlignment="Center" />
+
+                                    </Grid>
+                                </Border>
+
+                                <Border
+                                    Padding="16"
+                                    Background="#1A0066FF"
+                                    StrokeThickness="0"
+                                    Style="{DynamicResource BaseBorderStyle}">
+                                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                                        <Label
+                                            FontSize="20"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconInfo}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Information500Light},
+                                                                        Dark={DynamicResource Information500Dark}}" />
+                                        <VerticalStackLayout
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center">
+                                            <Label
+                                                Style="{DynamicResource BodyMedium12}"
+                                                Text="Receiver will get with in 1-2 business days."
+                                                TextColor="{AppThemeBinding Light={DynamicResource Information500Light},
+                                                                            Dark={DynamicResource Information500Dark}}" />
+                                            <Label
+                                                Style="{DynamicResource BodyMedium12}"
+                                                Text="No fees, low tax. Send up to 85,560.56 USD."
+                                                TextColor="{AppThemeBinding Light={DynamicResource Information500Light},
+                                                                            Dark={DynamicResource Information500Dark}}" />
+                                        </VerticalStackLayout>
+
+
+                                    </Grid>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+                    <Button
+                        Grid.Row="1"
+                        Margin="0,0,0,20"
+                        HeightRequest="60"
+                        Command="{Binding NextCommand}"
+                        ContentLayout="Right, 5"
+                        CornerRadius="30"
+                        IsEnabled="{Binding SendMoneyVisible}"
+                        Style="{DynamicResource LargePrimaryButtonStyle}"
+                        Text="Choose recipient"
+                        TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="Ficons"
+                                Glyph="{DynamicResource IconArrowright}"
+                                Size="16" />
+                        </Button.ImageSource>
+                    </Button>
+                </Grid>
+            </ScrollView>
+        </Grid>
+
+        <bottomSheet:SfBottomSheet
+            Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+            IsOpen="{Binding IsBottomSheet, Mode=TwoWay}">
+            <bottomSheet:SfBottomSheet.BottomSheetContent>
+                <VerticalStackLayout
+                    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+                    Padding="0">
+                    <Grid
+                        ColumnDefinitions="auto,*">
+                        <Button
+                            Margin="0,0,0,5"
+                            HorizontalOptions="Start"
+                            Padding="2,2,2,2"
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                            Dark={DynamicResource AccentWhiteDark}}"
+                            Command="{Binding BottomSheetBackCommand}"
+                            Style="{DynamicResource LargeCircularIconButtonStyle}"
+                            Text="{DynamicResource IconChevronleft}"
+                            TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                        Dark={DynamicResource Neutral800Dark}}" />
+                            <Label
+                                Grid.Column="1"
+                                Margin="0,0,30,10"
+                                HorizontalOptions="Center"
+                                Text="Select a Delivery Method"
+                                FontSize="Large"
+                                FontAttributes="Bold"
+                                VerticalOptions="Center"/>
+                    </Grid>
+                    <CollectionView
+                        x:Name="DeliveryMethodCollection"
+                        Margin="10,0"
+                        ItemsSource="{Binding DeliveryMethodList}"
+                        SelectionMode="Single">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Null}">
+                                <Grid
+                                    Padding="0" 
+                                    ColumnDefinitions="*,Auto">
+                                     <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext.SelectBottomSheetCommand, Source={x:Reference Name=DeliveryMethodCollection}}"
+                                            CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup Name="CommonStates">
+                                            <VisualState Name="Selected">
+                                                <VisualState.Setters>
+                                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                    <Border
+                                        Margin="0,5"
+                                        BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                        Dark={DynamicResource AccentWhiteDark}}"
+                                        Style="{DynamicResource NormalBorderStyle}"
+                                        StrokeThickness="0">
+                                        <Grid ColumnDefinitions="auto,*">
+                                            <Label
+                                                Margin="0,0,15,0"
+                                                Style="{DynamicResource LabelIconeStyle}"
+                                                Text="{DynamicResource IconBank}"
+                                                FontSize="Large"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral400Light},
+                                                                            Dark={DynamicResource Neutral400Dark}}"/>
+                                            <Label
+                                                Grid.Column="1"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                                Text="{Binding .}"
+                                                Style="{DynamicResource DisplaySemiBold20}"
+                                                VerticalOptions="Center"/>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </VerticalStackLayout>
+            </bottomSheet:SfBottomSheet.BottomSheetContent>
+        </bottomSheet:SfBottomSheet>
+    </Grid>
+</ContentPage>

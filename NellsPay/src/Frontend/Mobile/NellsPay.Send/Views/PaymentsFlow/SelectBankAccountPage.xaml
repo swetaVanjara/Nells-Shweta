@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentsFlow.SelectBankAccountPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Model="clr-namespace:NellsPay.Send.Models.PamentFlow"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentsFlow"
+    Title="SelectBankAccountPage"
+    x:DataType="viewmodels:SelectBankAccountVM"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <Grid
+        Padding="16,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Select a bank account"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+        <Border
+            Grid.Row="1"
+            Padding="16,0"
+            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                              Dark={DynamicResource AccentWhiteDark}}"
+            HeightRequest="44"
+            Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                     Dark={DynamicResource Neutral300Dark}}"
+            StrokeThickness="1"
+            Style="{DynamicResource MainBorderStyle}">
+            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                <Label
+                    FontSize="16"
+                    Style="{DynamicResource LabelIconeStyle}"
+                    Text="{DynamicResource IconSearch}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                Dark={DynamicResource Text3Dark}}" />
+                <Entry
+                    Grid.Column="1"
+                    FontFamily="FRegular"
+                    FontSize="14"
+                    Placeholder="Search your bank by name"
+                    PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                       Dark={DynamicResource Text3Dark}}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}" />
+
+            </Grid>
+        </Border>
+        <CollectionView
+            x:Name="TransactionsCollection"
+            Grid.Row="2"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding BankAccounts}"
+            SelectionMode="None"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="8" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <BoxView BackgroundColor="Transparent" HeightRequest="0" />
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <BoxView BackgroundColor="Transparent" HeightRequest="50" />
+            </CollectionView.Footer>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Model:BankAccountModel">
+                    <Border
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                          Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeThickness="0"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                            <Border
+                                Margin="8"
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                  Dark={DynamicResource Neutral100Dark}}"
+                                HeightRequest="32"
+                                StrokeShape="RoundRectangle 16"
+                                StrokeThickness="0"
+                                WidthRequest="32">
+                                <Image Aspect="AspectFill" Source="{Binding Bank.Image}" />
+                            </Border>
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="10"
+                                VerticalOptions="Center">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold16}"
+                                    Text="{Binding AccountHolderName}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyRegular12}"
+                                    Text="{Binding AccountNumber}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                Dark={DynamicResource Neutral500Dark}}"
+                                    VerticalTextAlignment="Center" />
+                            </VerticalStackLayout>
+
+                            <Button
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="Transparent"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectedCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+        <Button
+            Grid.Row="2"
+            Margin="0,0,0,30"
+            Command="{Binding AddBankCommand}"
+            ContentLayout="Left, 5"
+            CornerRadius="20"
+            FontFamily="FBold"
+            HeightRequest="60"
+            Style="{DynamicResource PrimaryMDButtonStyle}"
+            Text="Add Bank Account"
+            TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                        Dark={DynamicResource AccentWhiteDark}}"
+            VerticalOptions="End">
+            <Button.ImageSource>
+                <FontImageSource
+                    FontFamily="Ficons"
+                    Glyph="{DynamicResource IconPlus}"
+                    Size="16" />
+            </Button.ImageSource>
+        </Button>
+    </Grid>
+</ContentPage>

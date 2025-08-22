@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.MoneyTransferFlowPages.ReviewTransictionPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.MoneyTransferFlowViewModels"
+    x:DataType="viewmodels:ReviewTransictionVM"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid
+            Padding="16,0"
+            RowDefinitions="Auto,*"
+            RowSpacing="15">
+            <Grid ColumnDefinitions="50,*,50">
+                <Button
+                    Grid.Column="0"
+                    Padding="2,2,2,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                    Command="{Binding BackCommand}"
+                    Style="{DynamicResource LargeCircularIconButtonStyle}"
+                    Text="{DynamicResource IconChevronleft}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Review &amp; confirm"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"
+                    VerticalTextAlignment="Center"/>
+            </Grid>
+            <ScrollView
+                Grid.Row="1"
+                HorizontalScrollBarVisibility="Never"
+                VerticalScrollBarVisibility="Never">
+                <Grid
+                    Grid.Row="1"
+                    RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                    RowSpacing="15">
+
+                    <Border
+                        Padding="16"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <VerticalStackLayout Spacing="16">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="Choose a reason"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center"/>
+
+                            <Border
+                                Padding="10,2"
+                                Background="{AppThemeBinding Light={DynamicResource Neutral50Light},
+                                                        Dark={DynamicResource Neutral50Dark}}"
+                                HeightRequest="60"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                    Dark={DynamicResource Neutral300Dark}}"
+                                StrokeThickness="1"
+                                Style="{DynamicResource MainBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Grid
+                                        ColumnDefinitions="Auto,*"
+                                        ColumnSpacing="10"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Center">
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding ChooseReasonCommand}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Label
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconNote}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                    Dark={DynamicResource Text3Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Margin="10,0,0,0"
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource H120}"
+                                            Text="{Binding Reason}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource TextInverseDark},
+                                                                    Dark={DynamicResource TextInverseLight}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="18"
+                                        HorizontalTextAlignment="Start"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconChevrondown}"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                Dark={DynamicResource Text3Dark}}"
+                                        VerticalTextAlignment="Center"/>
+
+                                </Grid>
+                            </Border>
+
+
+                            <Label
+                                Margin="0,10,0,0"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium14}"
+                                Text="Payment method"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="Center"/>
+                            <Border
+                                Grid.Row="1"
+                                 Padding="10,2"
+                                Background="{AppThemeBinding Light={DynamicResource Neutral50Light},
+                                                            Dark={DynamicResource Neutral50Dark}}"
+                                HeightRequest="60"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                        Dark={DynamicResource Neutral300Dark}}"
+                                StrokeThickness="1"
+                                Style="{DynamicResource MainBorderStyle}">
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Grid
+                                        ColumnDefinitions="Auto,*"
+                                        ColumnSpacing="10"
+                                        HorizontalOptions="Fill"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            FontSize="20"
+                                            HorizontalTextAlignment="Center"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconBank}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                        Dark={DynamicResource Text3Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            Margin="10,0,0,0"
+                                            HorizontalTextAlignment="Start"
+                                              Style="{DynamicResource H120}"
+                                            Text="{Binding PaymentMethod.Title}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Button
+                                            Grid.ColumnSpan="2"
+                                            BackgroundColor="Transparent"
+                                            Command="{Binding PaymentMethodNavigateCommand}"/>
+                                    </Grid>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="18"
+                                        HorizontalTextAlignment="Start"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconChevrondown}"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                    Dark={DynamicResource Text3Dark}}"
+                                        VerticalTextAlignment="Center"/>
+
+                                </Grid>
+                            </Border>
+
+
+                        </VerticalStackLayout>
+                    </Border>
+                    <VerticalStackLayout Grid.Row="1"
+                                         Spacing="16">
+                        <Label
+                            HorizontalTextAlignment="Start"
+                            Style="{DynamicResource BodySemiBold18}"
+                            Text="Recipient details"
+                            VerticalTextAlignment="Start"/>
+                        <Border
+                            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource BaseBorderStyle}">
+                            <Grid RowDefinitions="Auto,1,Auto">
+                                <VerticalStackLayout Padding="16"
+                                                     Spacing="15">
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Recipient"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                        Dark={DynamicResource Text2Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding SelectedRecipient.FullName}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Delivery Method"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                        Dark={DynamicResource Text2Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding SelectedRecipient.PayOutType}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,*">
+                                        <Label
+                                            HorizontalTextAlignment="Start"
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="Transfer time"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                        Dark={DynamicResource Text2Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodyMedium14}"
+                                            Text="{Binding ReviewTransaction.Transfertime}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+                                    </Grid>
+                                    <Button
+                                        HeightRequest="60"
+                                        Command="{Binding ChangeRecipientCommand}"
+                                        CornerRadius="30"
+                                        Style="{DynamicResource SecondaryButtonStyle}"
+                                        Text="Change recipient"/>
+
+
+
+
+                                </VerticalStackLayout>
+                                <BoxView
+                                    Grid.Row="1"
+                                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                    Dark={DynamicResource Neutral100Dark}}"
+                                    HeightRequest="1"/>
+                                <VerticalStackLayout
+                                    Grid.Row="2"
+                                    Padding="16"
+                                    Spacing="10">
+                                    <Label
+                                        HorizontalTextAlignment="Start"
+                                        Style="{DynamicResource BodyMedium14}"
+                                        Text="Additional note"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                    Dark={DynamicResource Text1Dark}}"
+                                        VerticalTextAlignment="Center"/>
+                                    <Border
+                                        Grid.Row="1"
+                                        Padding="10"
+                                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral50Light},
+                                                                        Dark={DynamicResource Neutral50Dark}}"
+                                        HeightRequest="100"
+                                        Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                                Dark={DynamicResource Neutral200Dark}}"
+                                        StrokeThickness="1"
+                                        Style="{DynamicResource MainBorderStyle}">
+
+                                        <Editor
+                                            FontFamily="FRegular"
+                                            FontSize="14"
+                                            Placeholder="Add small note for recipient"
+                                            PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3LightLight},
+                                                                            Dark={DynamicResource Text3Dark}}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                        Dark={DynamicResource Neutral800Dark}}"/>
+                                    </Border>
+
+
+
+                                </VerticalStackLayout>
+                            </Grid>
+
+                        </Border>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="2"
+                                         Spacing="16">
+                        <Label
+                            HorizontalTextAlignment="Start"
+                            Style="{DynamicResource BodySemiBold18}"
+                            Text="Transfer details"
+                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                        Dark={DynamicResource Text1Dark}}"
+                            VerticalTextAlignment="Start"/>
+                        <Border
+                            Padding="16"
+                            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource BaseBorderStyle}">
+                            <Grid RowDefinitions="Auto,1,Auto,1,Auto"
+                                  RowSpacing="16">
+                                <VerticalStackLayout>
+                                    <Grid ColumnDefinitions="*,50,*">
+                                        <StackLayout Spacing="8">
+                                            <Label
+                                                HorizontalTextAlignment="Start"
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="Transfer amount"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                            Dark={DynamicResource Text2Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                            <HorizontalStackLayout Spacing="5">
+                                                <Label
+                                                    HorizontalTextAlignment="Start"
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ReviewTransaction.Transferamount}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                                Dark={DynamicResource Text1Dark}}"
+                                                    VerticalTextAlignment="Center"/>
+                                                <Label
+                                                    HorizontalTextAlignment="Start"
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ReviewTransaction.SendISOCode}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                                Dark={DynamicResource Text1Dark}}"
+                                                    VerticalTextAlignment="Center"/>
+                                            </HorizontalStackLayout>
+
+                                        </StackLayout>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconSwap}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"/>
+                                        <StackLayout Grid.Column="2"
+                                                     Spacing="8">
+                                            <Label
+                                                HorizontalTextAlignment="End"
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="Total to recipient"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                            Dark={DynamicResource Text2Dark}}"
+                                                VerticalTextAlignment="Center"/>
+                                            <HorizontalStackLayout HorizontalOptions="End"
+                                                                   Spacing="5">
+                                                <Label
+                                                    HorizontalTextAlignment="End"
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ReviewTransaction.Reciveamount}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                                Dark={DynamicResource Text1Dark}}"
+                                                    VerticalTextAlignment="Center"/>
+                                                <Label
+                                                    HorizontalTextAlignment="End"
+                                                    Style="{DynamicResource BodySemiBold14}"
+                                                    Text="{Binding ReviewTransaction.ReciveISOCode}"
+                                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                                Dark={DynamicResource Text1Dark}}"
+                                                    VerticalTextAlignment="Center"/>
+                                            </HorizontalStackLayout>
+
+                                        </StackLayout>
+                                    </Grid>
+
+                                    <Button
+                                        Grid.Row="2"
+                                        HeightRequest="60"
+                                        Margin="0,20,0,0"
+                                        Command="{Binding ChangeAmountCommand}"
+                                        CornerRadius="30"
+                                        Style="{DynamicResource SecondaryButtonStyle}"
+                                        Text="Change Amount"/>
+                                </VerticalStackLayout>
+
+                                <BoxView
+                                    Grid.Row="1"
+                                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                    Dark={DynamicResource Neutral100Dark}}"
+                                    HeightRequest="1"/>
+                                <VerticalStackLayout Grid.Row="2"
+                                                     Spacing="8">
+                                    <Border Background="{AppThemeBinding Light=#EDFAF1, Dark=#1A2EAD4B}"
+                                            Style="{DynamicResource MainBorderStyle}">
+                                        <Grid ColumnDefinitions="*,*">
+                                            <HorizontalStackLayout Spacing="5">
+                                                <Label
+                                                    FontSize="18"
+                                                    Style="{DynamicResource LabelIconeStyle}"
+                                                    Text="{DynamicResource IconSend}"
+                                                    TextColor="{DynamicResource Success500}"/>
+                                                <Label
+                                                    Style="{DynamicResource BodyRegular14}"
+                                                    Text="transfer fees"
+                                                    TextColor="{DynamicResource Success500}"
+                                                    VerticalTextAlignment="Center"/>
+                                            </HorizontalStackLayout>
+
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalTextAlignment="End"
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="FREE"
+                                                TextColor="{DynamicResource Success500}">
+                                                <Label.Triggers>
+                                                    <DataTrigger
+                                                        Binding="{Binding Fees}"
+                                                        TargetType="Label"
+                                                        Value="False">
+                                                        <Setter Property="TextColor"
+                                                                Value="{DynamicResource Success500}"/>
+                                                        <Setter Property="Text"
+                                                                Value="FREE"/>
+
+                                                    </DataTrigger>
+                                                    <DataTrigger
+                                                        Binding="{Binding Fees}"
+                                                        TargetType="Label"
+                                                        Value="True">
+                                                        <Setter Property="TextColor"
+                                                                Value="{DynamicResource Success500}"/>
+                                                        <Setter Property="Text"
+                                                                Value="{Binding FeesAmount}"/>
+
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+
+                                        </Grid>
+                                    </Border>
+                                </VerticalStackLayout>
+                                <BoxView
+                                    Grid.Row="3"
+                                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                                                    Dark={DynamicResource Neutral100Dark}}"
+                                    HeightRequest="1"/>
+                                <Grid Grid.Row="4"
+                                      ColumnDefinitions="*,*">
+                                    <Label
+                                        HorizontalTextAlignment="Start"
+                                        Style="{DynamicResource BodySemiBold16}"
+                                        Text="Total amount"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                    Dark={DynamicResource Text1Dark}}"
+                                        VerticalTextAlignment="Center"/>
+                                    <HorizontalStackLayout
+                                        Grid.Column="1"
+                                        HorizontalOptions="End"
+                                        Spacing="5">
+                                        <Label
+                                            HorizontalTextAlignment="End"
+                                            Style="{DynamicResource BodySemiBold16}"
+                                            Text="{Binding ReviewTransaction.Total}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                        Dark={DynamicResource Text1Dark}}"
+                                            VerticalTextAlignment="Center"/>
+
+                                    </HorizontalStackLayout>
+
+                                </Grid>
+                            </Grid>
+
+                        </Border>
+                    </VerticalStackLayout>
+                    <Border
+                        Grid.Row="2"
+                        Padding="20,20"
+                        IsVisible="False"
+                        Stroke="Transparent"
+                        StrokeShape="RoundRectangle 25"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BorderBackground}">
+                        <VerticalStackLayout Spacing="15">
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Transfer amount"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Transferamount}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Total to recipient"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Totaltorecipient}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Exchange rate"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Exchangerate}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Transfer fee"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Transferfee}"
+                                    TextColor="{DynamicResource NpGreen}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Transfer taxes"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Transfertaxes}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Grid Margin="0,10"
+                                  ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Voucher"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Voucher}"
+                                    VerticalTextAlignment="Center"/>
+                                <Grid.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding ReviewTransaction.Voucher}"
+                                        TargetType="Grid"
+                                        Value="">
+                                        <Setter Property="IsVisible"
+                                                Value="False"/>
+                                    </DataTrigger>
+
+                                </Grid.Triggers>
+                            </Grid>
+                            <Grid Margin="0,10"
+                                  ColumnDefinitions="*,*">
+                                <Label
+                                    FontFamily="SFRegular"
+                                    FontSize="14"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="Total"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    FontFamily="SFBlackBold"
+                                    FontSize="20"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource HeaderLabelStyle}"
+                                    Text="{Binding ReviewTransaction.Total}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Label
+                                Padding="0,0,0,0"
+                                BackgroundColor="Transparent"
+                                FontAttributes="Bold"
+                                FontFamily="SFRegular"
+                                HorizontalOptions="Start"
+                                Text="Edit amount"
+                                TextColor="{DynamicResource NpBlue}"
+                                TextDecorations="Underline"
+                                VerticalOptions="Start"/>
+                            <Border
+                                Margin="0,5,0,0"
+                                HeightRequest="50"
+                                Stroke="#E0E9FF"
+                                StrokeShape="RoundRectangle 25"
+                                StrokeThickness="0"
+                                VerticalOptions="End"/>
+                        </VerticalStackLayout>
+                    </Border>
+                    <Button
+                        Grid.Row="4"
+                        Margin="0,0,0,20"
+                        Command="{Binding PayNowCommand}"
+                        ContentLayout="Right, 5"
+                        CornerRadius="30"
+                        HeightRequest="60"
+                        IsEnabled="{Binding IsPayNow}"
+                        Style="{DynamicResource LargePrimaryButtonStyle}"
+                        Text="Pay Now"
+                        TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                Dark={DynamicResource AccentWhiteDark}}">
+                        <Button.ImageSource>
+                            <FontImageSource
+                                FontFamily="Ficons"
+                                Glyph="{DynamicResource IconArrowright}"
+                                Size="16"/>
+                        </Button.ImageSource>
+                    </Button>
+
+                </Grid>
+            </ScrollView>
+        </Grid>
+
+        <Grid
+            BackgroundColor="{AppThemeBinding Dark={StaticResource LightBackgroundColor}, Light={StaticResource DarkBackgroundColor}}"
+            Opacity="0.4"
+            IsVisible="{Binding IsLoading}"
+            InputTransparent="False"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ZIndex="99"/>
+
+        <!-- Layer 2: Spinner -->
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60"
+            Color="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}"
+            ZIndex="999"/>
+    </Grid>
+</ContentPage>

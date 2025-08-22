@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.ProfilePages.TermsOrPolicyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    BackgroundColor="{DynamicResource PageBackground}"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{DynamicResource PageBackground}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid
+        Margin="15,8,15,0"
+        RowDefinitions="Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Clicked="BackButton_Clicked"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+            <Label
+                x:Name="PageTitle"
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                VerticalTextAlignment="Center" />
+        </Grid>
+
+        <ScrollView
+            Grid.Row="1"
+            x:Name ="scrollVw"
+            HorizontalScrollBarVisibility="Never"
+            VerticalScrollBarVisibility="Never">
+            <Label
+                x:Name="myLabel"
+                Margin="5,20"
+                HorizontalOptions="Center"
+                Text="Loading..."
+                VerticalOptions="Center" />
+        </ScrollView>
+
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="NellsPay.Send.Views.Verifyidentity.GenderPage"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid
+        Padding="16,16,16,0"
+        RowDefinitions="Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}"/>
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Select a Gender"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <CollectionView
+                x:Name="GenderCollection"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding GenderList}"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16"
+                            Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <BoxView BackgroundColor="Transparent"
+                            HeightRequest="0"/>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView BackgroundColor="Transparent"
+                            HeightRequest="0"/>
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            Padding="16"
+                            StrokeThickness="0"
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource Foundation3Dark}}"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <Grid ColumnDefinitions="50,*"
+                                    ColumnSpacing="10">
+                                <Border
+                                    Margin="0"
+                                    Padding="3"
+                                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                                Dark={DynamicResource Foundation5Dark}}"
+                                    HeightRequest="48"
+                                    WidthRequest="48"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 24"
+                                    VerticalOptions="Start">
+                                    <Label
+                                        FontSize="20"
+                                        HorizontalTextAlignment="Center"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconUser}"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                        VerticalTextAlignment="Center" />
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalOptions="Start"
+                                    Style="{DynamicResource BodySemiBold18}"
+                                    Text="{Binding .}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Button
+                                    Grid.ColumnSpan="3"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectGenderCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </Grid>
+    </Grid>
+</ContentPage>

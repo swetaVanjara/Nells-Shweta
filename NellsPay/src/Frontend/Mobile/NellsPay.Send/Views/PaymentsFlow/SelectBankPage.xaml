@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentsFlow.SelectBankPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Model="clr-namespace:NellsPay.Send.Models.PamentFlow"
+    xmlns:ResModel="clr-namespace:NellsPay.Send.ResponseModels"
+    xmlns:Svg="clr-namespace:NellsPay.Send.CustomControls"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentsFlow"
+    Title="SelectBankPage"
+    x:DataType="viewmodels:SelectBankVM"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid
+            Padding="16,0"
+            RowDefinitions="Auto,Auto,*"
+            RowSpacing="15">
+            <Grid ColumnDefinitions="50,*,50">
+                <Button
+                    Grid.Column="0"
+                    Padding="2,2,2,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                    Command="{Binding BackCommand}"
+                    Style="{DynamicResource LargeCircularIconButtonStyle}"
+                    Text="{DynamicResource IconChevronleft}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Select a bank"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"
+                    VerticalTextAlignment="Center"/>
+
+            </Grid>
+            <Border
+                Grid.Row="1"
+                Padding="16,0"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                Dark={DynamicResource AccentWhiteDark}}"
+                HeightRequest="44"
+                Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                        Dark={DynamicResource Neutral300Dark}}"
+                StrokeThickness="1"
+                Style="{DynamicResource MainBorderStyle}">
+                <Grid ColumnDefinitions="Auto,*"
+                        ColumnSpacing="8">
+                    <Label
+                        FontSize="16"
+                        Style="{DynamicResource LabelIconeStyle}"
+                        Text="{DynamicResource IconSearch}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                    Dark={DynamicResource Text3Dark}}"/>
+                    <Entry
+                        Grid.Column="1"
+                        FontFamily="FRegular"
+                        FontSize="14"
+                        Text="{Binding Search, Mode=TwoWay}"
+                        ReturnType="Search"
+                        ReturnCommand="{Binding SearchBankCommand}"
+                        Placeholder="Search your bank by name"
+                        PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                        Dark={DynamicResource Text3Dark}}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                    Dark={DynamicResource Text1Dark}}"/>
+                </Grid>
+            </Border>
+
+            <CollectionView
+                Grid.Row="2"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding BankList}"
+                SelectionMode="None"
+                RemainingItemsThreshold="2"
+                RemainingItemsThresholdReachedCommand="{Binding LazyLoaderCommand}"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="8"
+                            Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <BoxView BackgroundColor="Transparent"
+                            HeightRequest="0"/>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <StackLayout Padding="20" HorizontalOptions="Center">
+                        <ActivityIndicator
+                            IsRunning="{Binding IsLoadingMore}"
+                            IsVisible="{Binding IsLoadingMore}" />
+                    </StackLayout>
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="ResModel:Datas">
+                        <Border
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                            Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <Grid ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="10">
+                                <!-- <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectedCommand}"
+                                        CommandParameter="{Binding .}"/>
+                                </Grid.GestureRecognizers> -->
+                                <Border
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="74"
+                                    WidthRequest="74"
+                                    StrokeShape="RoundRectangle 37"
+                                    StrokeThickness="0">
+                                    <Svg:SvgImageView
+                                        Aspect="Fill"
+                                        SvgUrl="{Binding LogoUrl}"/>
+                                    <!-- <Image Aspect="AspectFill" Source="{Binding Image}" /> -->
+                                </Border>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold16}"
+                                    Text="{Binding Name}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Button
+                                    Grid.ColumnSpan="2"
+                                    BackgroundColor="Transparent"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectedCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Grid>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+        <Grid
+            BackgroundColor="{AppThemeBinding Dark={StaticResource LightBackgroundColor}, Light={StaticResource DarkBackgroundColor}}"
+            Opacity="0.4"
+            IsVisible="{Binding IsLoading}"
+            InputTransparent="False"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ZIndex="99"/>
+
+        <!-- Layer 2: Spinner -->
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="true"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60"
+            Color="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}"
+            ZIndex="999"/>
+    </Grid>
+</ContentPage>

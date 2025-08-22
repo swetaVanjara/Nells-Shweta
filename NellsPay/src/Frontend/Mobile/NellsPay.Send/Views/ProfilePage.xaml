@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.ProfilePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:local="clr-namespace:NellsPay.Send.Converters"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels"
+    Title="ProfilePage"
+    x:DataType="viewmodels:ProfileViewModel"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+
+    <Grid
+        Padding="16,30,16,0"
+        Background="{DynamicResource PrimaryGradientProfile}"
+        IsVisible="True"
+        RowDefinitions="3*,7*"
+        RowSpacing="16">
+        <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="20">
+            <Grid ColumnDefinitions="50,*,50">
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Profile"
+                    TextColor="{DynamicResource AccentWhite}"
+                    VerticalTextAlignment="Center" />
+                <Button
+                    Grid.Column="2"
+                     BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                   Dark=#224678}"
+                    Command="{Binding EditProfileCommand}"
+                    CornerRadius="22"
+                    Style="{DynamicResource CircularIconButtonStyle}"
+                    Text="{DynamicResource IconEdit}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                  Dark=#FFFFFF}" />
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                HeightRequest="80"
+                WidthRequest="80">
+                 
+                <Border
+                    BackgroundColor="White"
+                    HeightRequest="80"
+                    StrokeShape="RoundRectangle 40"
+                    StrokeThickness="0"
+                    WidthRequest="80">
+                    <Grid
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Image
+                            Aspect="AspectFill"
+                            IsVisible="{Binding Image, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                            Source="{Binding Image}"/>
+                        <Label
+                            Margin="{OnPlatform iOS='0,0,0,8', Android='0,0,0,0', Default='0'}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            FontSize="32"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            IsVisible="{Binding Image, Converter={StaticResource StringIsNullOrEmptyConverter}}"
+                            Style="{DynamicResource H2SemiBold24}"
+                            Text="{Binding UserInitials}"
+                            TextColor="{StaticResource Text1}"/>
+
+                    </Grid>
+                </Border>
+                <Border
+                    Padding="0,0,0,0"
+                    BackgroundColor="White"
+                    HeightRequest="32"
+                    HorizontalOptions="End"
+                    StrokeShape="RoundRectangle 16"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BaseBorderStyle}"
+                    VerticalOptions="End"
+                    WidthRequest="32">
+                    <Button
+                        Padding="3"
+                        BackgroundColor="White"
+                        Command="{Binding CameraCommand}"
+                        FontSize="20"
+                        Style="{DynamicResource LargeCircularIconButtonStyle}"
+                        Text="{DynamicResource IconCamera}"
+                        TextColor="{DynamicResource AccentBlack}" />
+                </Border>
+            </Grid>
+            <VerticalStackLayout Grid.Row="2" Spacing="10">
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodySemiBold18}"
+                    Text="{Binding User.UserName}"
+                    TextColor="{DynamicResource AccentWhite}"
+                    VerticalTextAlignment="Center" />
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyMedium14}"
+                    Text="{Binding User.Email}"
+                    TextColor="{DynamicResource AccentWhite}"
+                    VerticalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </Grid>
+        <Border
+            Margin="0,25,0,0"
+            Grid.Row="1"
+            Padding="0,0,0,0"
+            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                         Dark={DynamicResource AccentWhiteDark}}"
+            Stroke="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                     Dark={DynamicResource AccentWhiteDark}}"
+            Style="{DynamicResource BaseBorderStyle}">
+            <ScrollView HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never">
+                <VerticalStackLayout>
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconBell}"
+                                    TextColor="{DynamicResource Warning300}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Notification"
+                                VerticalTextAlignment="Center" />
+                            <Switch
+                                Grid.Column="2"
+                                HeightRequest="30"
+                                IsToggled="{Binding Notification}"
+                                OnColor="{DynamicResource NpGreen}"
+                                Scale="{OnPlatform Android='1',
+                                                   iOS='0.8'}"
+                                ThumbColor="{DynamicResource White}"
+                                VerticalOptions="Center" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconCard}"
+                                    TextColor="{DynamicResource Success600}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Payment Settings"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="20"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevronright}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}" />
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding PaymentSettingsCommand}" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconLock}"
+                                    TextColor="{DynamicResource Warning500}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Change Password"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="20"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevronright}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}" />
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding ChangePasswordCommand}" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconNote}"
+                                    TextColor="{DynamicResource Information400}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Terms &amp; Conditions "
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="20"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevronright}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}" />
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding TermsConditionsCommand}" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconShield}"
+                                    TextColor="{DynamicResource Error300}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Privacy Policy"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="20"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevronright}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}" />
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding PrivacyPolicyCommand}" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Padding="16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 0"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconFaq}"
+                                    TextColor="{DynamicResource Error300}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Faqs"
+                                VerticalTextAlignment="Center" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="20"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevronright}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                            Dark={DynamicResource Neutral500Dark}}" />
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding FaqsCommand}" />
+
+                        </Grid>
+                    </Border>
+                    <BoxView BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light}, Dark={DynamicResource Neutral200Dark}}" HeightRequest="1" />
+                    <Border
+                        Margin="0,0,0,20"
+                        Padding="16,30,16,10"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 8"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                            <Border
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                HeightRequest="40"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                         Dark={DynamicResource Neutral200Dark}}"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="1"
+                                Style="{DynamicResource BaseBorderStyle}"
+                                WidthRequest="40">
+                                <Label
+                                    FontSize="20"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconLogout}"
+                                    TextColor="{DynamicResource Error400}" />
+                            </Border>
+                            <Label
+                                Grid.Column="1"
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodyMedium16}"
+                                Text="Logout"
+                                TextColor="{DynamicResource Error400}"
+                                VerticalTextAlignment="Center" />
+
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding LogoutCommand}" />
+
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+            </ScrollView>
+        </Border>
+
+
+
+    </Grid>
+
+</ContentPage>

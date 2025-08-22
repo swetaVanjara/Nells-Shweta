@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentSettingsPages.AddManuallyPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentSettingsViewModels"
+    x:DataType="viewmodels:AddManuallyVM"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <Grid
+        Margin="16,16,16,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Add manually"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="20">
+            <VerticalStackLayout Spacing="16">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodyMedium14}"
+                    Text="Card number"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"
+                    VerticalTextAlignment="Center" />
+                <Border
+                    Padding="10,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                      Dark={DynamicResource Neutral200Dark}}"
+                    Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                             Dark={DynamicResource Neutral300Dark}}"
+                    StrokeThickness="1"
+                    Style="{DynamicResource MainBorderStyle}">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Label
+                            FontSize="18"
+                            Style="{DynamicResource LabelIconeStyle}"
+                            Text="{DynamicResource IconCard}"
+                            TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                        Dark={DynamicResource Text3Dark}}" />
+                        <Entry
+                            Grid.Column="1"
+                            FontFamily="FRegular"
+                            FontSize="14"
+                            Placeholder="000-00000-000-0000"
+                             Text="{Binding Card.CardNumber}"
+                            PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                               Dark={DynamicResource Text3Dark}}"
+                           
+                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                        Dark={DynamicResource Text1Dark}}" />
+
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
+                <VerticalStackLayout Spacing="16">
+                    <Label
+                        HorizontalTextAlignment="Start"
+                        Style="{DynamicResource BodyMedium14}"
+                        Text="Expire month"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center" />
+                    <Border
+                        Padding="10,2"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                          Dark={DynamicResource Neutral200Dark}}"
+                        Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                 Dark={DynamicResource Neutral300Dark}}"
+                        StrokeThickness="1"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                            <Label
+                                FontSize="18"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconBank}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                            Dark={DynamicResource Text3Dark}}" />
+                            <Picker
+                                Title="Select Month"
+                                Grid.Column="1"
+                                FontFamily="SFBlackMedium"
+                                FontSize="14"
+                                ItemsSource="{Binding Months}"
+                                SelectedItem="{Binding SelectedMonth}" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="18"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevrondown}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                            Dark={DynamicResource Text3Dark}}" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1" Spacing="16">
+                    <Label
+                        HorizontalTextAlignment="Start"
+                        Style="{DynamicResource BodyMedium14}"
+                        Text="Expire year"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center" />
+                    <Border
+                        Padding="10,2"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                          Dark={DynamicResource Neutral200Dark}}"
+                        Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                 Dark={DynamicResource Neutral300Dark}}"
+                        StrokeThickness="1"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="8">
+                            <Label
+                                FontSize="18"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconBank}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                            Dark={DynamicResource Text3Dark}}" />
+                            <Picker
+                                Title="Select Year"
+                                Grid.Column="1"
+                                FontFamily="SFBlackMedium"
+                                FontSize="14"
+                                ItemsSource="{Binding Years}"
+                                SelectedItem="{Binding SelectedYear}" />
+                            <Label
+                                Grid.Column="2"
+                                FontSize="18"
+                                Style="{DynamicResource LabelIconeStyle}"
+                                Text="{DynamicResource IconChevrondown}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                            Dark={DynamicResource Text3Dark}}" />
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+
+            </Grid>
+            <VerticalStackLayout Spacing="16">
+                <Label
+                    HorizontalTextAlignment="Start"
+                    Style="{DynamicResource BodyMedium14}"
+                    Text="Card holder name"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"
+                    VerticalTextAlignment="Center" />
+                <Border
+                    Padding="10,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                      Dark={DynamicResource Neutral200Dark}}"
+                    Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                             Dark={DynamicResource Neutral300Dark}}"
+                    StrokeThickness="1"
+                    Style="{DynamicResource MainBorderStyle}">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="8">
+                        <Label
+                            FontSize="18"
+                            Style="{DynamicResource LabelIconeStyle}"
+                            Text="{DynamicResource IconCard}"
+                            TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                        Dark={DynamicResource Text3Dark}}" />
+                        <Entry
+                            Grid.Column="1"
+                            FontFamily="FRegular"
+                            FontSize="14"
+                            Placeholder="Enter full name of the card holder"
+                            PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                               Dark={DynamicResource Text3Dark}}"
+                            Text="{Binding Card.CardHolderName}"
+                            TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                        Dark={DynamicResource Text1Dark}}" />
+
+                    </Grid>
+                </Border>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+        <Button
+            Grid.Row="2"
+            Margin="0,20"
+            BackgroundColor="{DynamicResource Primary500}"
+            Command="{Binding AddCardCommand}"
+            CornerRadius="30"
+            HeightRequest="60"
+            IsEnabled="{Binding EnabelAddCard}"
+            IsVisible="True"
+            Style="{DynamicResource PrimaryMDButtonStyle}"
+            Text="Add Card"
+            VerticalOptions="End" />
+
+
+    </Grid>
+</ContentPage>

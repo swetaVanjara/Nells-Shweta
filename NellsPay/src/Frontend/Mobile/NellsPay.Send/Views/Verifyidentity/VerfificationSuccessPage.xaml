@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NellsPay.Send.Views.Verifyidentity.VerfificationSuccessPage"
+             Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+             NavigationPage.HasNavigationBar="False">
+    <Grid Margin="16">
+        <VerticalStackLayout VerticalOptions="Center"
+                Spacing="16">
+            <Image  HeightRequest="135"
+                    WidthRequest="155"
+                    Source="transfersuccssefull.png"/>
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource H1ExBold28}"
+                Text="Verification Complete!"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                 Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyRegular12}"
+                Text="Thanks for verifying your identity. "
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                            Dark={DynamicResource Neutral500Dark}}"
+                VerticalTextAlignment="Center"/>
+        </VerticalStackLayout>
+
+        <Button
+            VerticalOptions="End"
+            x:Name="ok"
+            Margin="0,20,0,10"
+            Clicked="ok_Clicked"
+            Command="{Binding ContinueCommand}"
+            CornerRadius="30"
+            FontFamily="FBold"
+            HeightRequest="60"
+            Style="{DynamicResource PrimaryMDButtonStyle}"
+            Text="Continue"/>
+    </Grid>
+
+</ContentPage>

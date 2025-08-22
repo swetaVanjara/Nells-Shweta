@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:local="clr-namespace:NellsPay.Send.Converters"
+    xmlns:Svg="clr-namespace:NellsPay.Send.CustomControls"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource   Neutral200Dark}, Light={StaticResource Neutral800Light}}"
+                StatusBarStyle="DarkContent"/>
+    </ContentPage.Behaviors>
+    <Grid Background="{DynamicResource PrimaryGradient}">
+        <Grid
+            Margin="0"
+            Padding="16,30,16,0"
+            Background="{DynamicResource PrimaryGradient}"
+            IsVisible="True"
+            RowDefinitions="Auto,*">
+            <Grid ColumnDefinitions="Auto,*,Auto"
+                    ColumnSpacing="16">
+
+                <Border
+                    BackgroundColor="White"
+                    HeightRequest="60"
+                    StrokeShape="RoundRectangle 30"
+                    StrokeThickness="0"
+                    WidthRequest="60">
+                    <Border.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding UserEditCommand}"/>
+                    </Border.GestureRecognizers>
+                    <Grid
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center">
+                        <Image
+                            Aspect="AspectFill"
+                            IsVisible="{Binding Image, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                            Source="{Binding Image}"/>
+                        <Label
+                            Margin="{OnPlatform iOS='0,0,0,8', Android='0,0,0,0', Default='0'}"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            IsVisible="{Binding Image, Converter={StaticResource StringIsNullOrEmptyConverter}}"
+                            Style="{DynamicResource H2SemiBold24}"
+                            Text="{Binding UserInitials}"
+                            TextColor="{StaticResource Text1}"/>
+
+                    </Grid>
+                </Border>
+                <StackLayout
+                    Grid.Column="1"
+                    BackgroundColor="Transparent"
+                    VerticalOptions="Center">
+                    <Label
+                        Style="{DynamicResource BodyMedium12}"
+                        Text="Welcome back,"
+                        TextColor="{DynamicResource AccentWhite}"/>
+                    <Label
+                        Style="{DynamicResource BodyMedium18}"
+                        Text="{Binding UserName}"
+                        TextColor="{DynamicResource AccentWhite}"/>
+                </StackLayout>
+                <Grid Grid.Column="2">
+                    <Button
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark=#224678}"
+                        Command="{Binding NotificationCommand}"
+                        CornerRadius="25"
+                        Style="{DynamicResource CircularIconButtonStyle}"
+                        Text="{DynamicResource IconBell}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark=#FFFFFF}"/>
+                    <Border
+                        Margin="11"
+                        BackgroundColor="{DynamicResource NpRed}"
+                        HeightRequest="8"
+                        HorizontalOptions="End"
+                        IsVisible="{Binding NewNotification}"
+                        Stroke="White"
+                        StrokeShape="RoundRectangle 4"
+                        StrokeThickness="1"
+                        TranslationY="2"
+                        VerticalOptions="Start"
+                        WidthRequest="8"/>
+                </Grid>
+            </Grid>
+            <ScrollView
+                Grid.Row="1"
+                Margin="0,20,0,0"
+                HorizontalScrollBarVisibility="Never"
+                VerticalOptions="Fill"
+                VerticalScrollBarVisibility="Never">
+                <VerticalStackLayout Margin="0,20,0,20"
+                        Spacing="20">
+                    <Border
+                        IsVisible="{Binding VerifyIdVisible}"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeThickness="0"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid RowDefinitions="Auto,Auto"
+                                RowSpacing="16">
+                            <Grid ColumnDefinitions="Auto,*"
+                                    ColumnSpacing="16">
+                                <Image
+                                    HeightRequest="60"
+                                    Source="identity.png"
+                                    VerticalOptions="Start"
+                                    WidthRequest="60"/>
+                                <Grid Grid.Column="1"
+                                        RowDefinitions="Auto,Auto">
+                                    <Grid ColumnDefinitions="*,Auto">
+                                        <Label
+                                            Margin="0,5,0,0"
+                                            Style="{DynamicResource BodySemiBold18}"
+                                            Text="Verify your identity"/>
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            HorizontalOptions="End"
+                                            Style="{DynamicResource LabelIconeStyle}"
+                                            Text="{DynamicResource IconClose}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                        Dark={DynamicResource Neutral500Dark}}"
+                                            VerticalOptions="Start">
+                                            <Label.GestureRecognizers>
+                                                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                                            </Label.GestureRecognizers>
+                                        </Label>
+
+                                    </Grid>
+                                    <Label
+                                        Grid.Row="1"
+                                        Margin="0,16,0,0"
+                                        Style="{DynamicResource BodyRegular12}"
+                                        Text="Identity verification is required to securely complete your money transfer. Please verify your identity to proceed."/>
+                                </Grid>
+                            </Grid>
+                            <Button
+                                Grid.Row="1"
+                                HeightRequest="60"
+                                Command="{Binding VerifyCommand}"
+                                CornerRadius="30"
+                                Style="{DynamicResource SecondaryButtonStyle}"
+                                Text="Verify now"/>
+                        </Grid>
+                    </Border>
+                    <Border
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeThickness="0"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto"
+                                RowSpacing="16">
+                            <Label
+                                HorizontalTextAlignment="Start"
+                                Style="{DynamicResource BodySemiBold18}"
+                                Text="Exchange rate"
+                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                            Dark={DynamicResource Neutral800Dark}}"/>
+                            <Border
+                                Grid.Row="2"
+                                Margin="0,-40,0,-16"
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                                Dark={DynamicResource AccentWhiteDark}}"
+                                HorizontalOptions="Fill"
+                                Stroke="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                        Dark={DynamicResource Neutral300Dark}}"
+                                StrokeThickness="1"
+                                Style="{DynamicResource SecondBorderStyle}"
+                                VerticalOptions="Fill"/>
+                            <Border
+                                Grid.Row="1"
+                                BackgroundColor="{AppThemeBinding Light={DynamicResource Primary900Light},
+                                                                Dark=#454545}"
+                                HorizontalOptions="Center"
+                                Style="{DynamicResource SecondBorderStyle}">
+                                <Grid ColumnDefinitions="Auto,Auto,Auto"
+                                        ColumnSpacing="8">
+                                    <Border
+                                        HeightRequest="48"
+                                        Stroke="White"
+                                        StrokeShape="RoundRectangle 24"
+                                        StrokeThickness="1"
+                                        WidthRequest="48">
+                                        <Svg:SvgImageView
+                                            Aspect="Fill"
+                                            SvgUrl="{Binding SenderCurrency.CountryFlag}"/>
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding FirstCurrencyCommand}"/>
+                                        </Border.GestureRecognizers>
+                                    </Border>
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="18"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconSwap}"
+                                        TextColor="White"/>
+                                    <Border
+                                        Grid.Column="2"
+                                        HeightRequest="48"
+                                        Stroke="White"
+                                        StrokeShape="RoundRectangle 24"
+                                        StrokeThickness="1"
+                                        WidthRequest="48">
+                                        <Svg:SvgImageView
+                                            Aspect="Fill"
+                                            SvgUrl="{Binding RecieverCurrency.CountryFlag}"/>
+                                        <Border.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding SecondCurrencyCommand}"/>
+                                        </Border.GestureRecognizers>
+                                    </Border>
+
+                                </Grid>
+                            </Border>
+
+                            <Grid
+                                HorizontalOptions="Center"
+                                Grid.Row="2"
+                                ColumnDefinitions="*,Auto,*"
+                                ColumnSpacing="20"
+                                IsVisible="True">
+                                <Label
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource BodyBold20}"
+                                    Text="{Binding SenderCurrency.Region,Mode=TwoWay}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource BodyBold20}"
+                                    Text="＝"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral400Light},
+                                                                Dark={DynamicResource Neutral400Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                                <Label
+                                    Grid.Column="2"
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyBold20}"
+                                    Text="{Binding RecieverCurrency.Region, Mode=TwoWay}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"
+                                    VerticalTextAlignment="Center"/>
+                            </Grid>
+                            <Button
+                                Grid.Row="3"
+                                Margin="0,20,0,16"
+                                Command="{Binding SendNowCommand}"
+                                ContentLayout="Right, 5"
+                                IsEnabled="{Binding SendMoneyVisible}"
+                                CornerRadius="30"
+                                FontFamily="FBold"
+                                HeightRequest="60"
+                                Style="{DynamicResource PrimaryMDButtonStyle}"
+                                Text="Send Money"
+                                VerticalOptions="Center">
+                                <Button.ImageSource>
+                                    <FontImageSource
+                                        FontFamily="Ficons"
+                                        Glyph="{DynamicResource IconSend}"
+                                        Size="16"/>
+                                </Button.ImageSource>
+                            </Button>
+                        </Grid>
+
+                    </Border>
+                    <Grid ColumnDefinitions="*,*"
+                            ColumnSpacing="16">
+                        <Border
+                            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <VerticalStackLayout Spacing="10">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyMedium14}"
+                                    Text="Sent in 90 days"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                Dark={DynamicResource Neutral500Dark}}"/>
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold20}"
+                                    Text="{Binding SummaryTotalAmount}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"/>
+                            </VerticalStackLayout>
+
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                        Dark={DynamicResource AccentWhiteDark}}"
+                            StrokeThickness="0"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <VerticalStackLayout Spacing="10">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyMedium14}"
+                                    Text="Sent over 90 days"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                Dark={DynamicResource Neutral500Dark}}"/>
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold20}"
+                                    Text="{Binding SummaryTransactionCount}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"/>
+                            </VerticalStackLayout>
+
+                        </Border>
+                    </Grid>
+
+                    <Border Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}"
+                            Style="{DynamicResource MainBorderStyle}">
+
+                        <Grid RowDefinitions="Auto,Auto"
+                                RowSpacing="15">
+                            <Grid ColumnDefinitions="*,*">
+                                <Label
+                                    Style="{DynamicResource BodySemiBold14}"
+                                    Text="Recent recipients"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                                Dark={DynamicResource Neutral800Dark}}"/>
+                                <Label
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="End"
+                                    Style="{DynamicResource BodyMedium14}"
+                                    Text="See all"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                Dark={DynamicResource Primary400}}">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SeeAllCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </Grid>
+
+                            <CollectionView
+                                Grid.Row="1"
+                                Margin="0,0"
+                                HeightRequest="100"
+                                HorizontalScrollBarVisibility="Never"
+                                ItemsSource="{Binding Recipients}"
+                                VerticalScrollBarVisibility="Never">
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout ItemSpacing="10"
+                                            Orientation="Horizontal"/>
+                                </CollectionView.ItemsLayout>
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid RowDefinitions="Auto,Auto"
+                                                RowSpacing="5">
+                                            <Grid HeightRequest="74"
+                                                    WidthRequest="74">
+                                                <Border
+                                                    Margin="8"
+                                                    BackgroundColor="{Binding Id, Converter={StaticResource RandomColorConverter}}"
+                                                    HeightRequest="74"
+                                                    StrokeShape="RoundRectangle 37"
+                                                    StrokeThickness="0"
+                                                    WidthRequest="74"/>
+                                                <Grid
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center">
+                                                    <Image
+                                                        Aspect="AspectFill"
+                                                        IsVisible="{Binding Image, Converter={StaticResource StringNotNullOrEmptyConverter}}"
+                                                        Source="{Binding Image}"/>
+                                                    <Label
+                                                        Margin="{OnPlatform iOS='0,0,0,8', Android='0,0,0,0', Default='0'}"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="Center"
+                                                        HorizontalTextAlignment="Center"
+                                                        VerticalTextAlignment="Center"
+                                                        IsVisible="{Binding Image, Converter={StaticResource StringIsNullOrEmptyConverter}}"
+                                                        Style="{DynamicResource H2SemiBold24}"
+                                                        Text="{Binding Initials}"
+                                                        TextColor="{StaticResource Text1}"/>
+
+                                                </Grid>
+
+                                                <Border
+                                                    Grid.Row="1"
+                                                    HeightRequest="25"
+                                                    WidthRequest="25"
+                                                    HorizontalOptions="End"
+                                                    Stroke="Transparent"
+                                                    StrokeThickness="0"
+                                                    StrokeShape="RoundRectangle 11"
+                                                    VerticalOptions="End">
+                                                    <!-- <Image Source="{Binding CountryFlag}" /> -->
+                                                    <Svg:SvgImageView
+                                                        Aspect="Fill"
+                                                        SvgUrl="{Binding CountryFlag}"/>
+                                                </Border>
+                                            </Grid>
+                                            <Label
+                                                Grid.Row="1"
+                                                HorizontalTextAlignment="Center"
+                                                Style="{DynamicResource BodyRegular14}"
+                                                Text="{Binding FirstName}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Neutral800},
+                                                                            Dark={DynamicResource Neutral100}}"
+                                                VerticalTextAlignment="Center"/>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+
+                            </CollectionView>
+
+                        </Grid>
+                    </Border>
+
+                    <Border Padding="0,0,0,0"
+                            Style="{DynamicResource MainBorderStyle}">
+                        <Grid RowDefinitions="Auto,Auto"
+                                RowSpacing="10">
+                            <Image
+                                Grid.RowSpan="2"
+                                Aspect="AspectFill"
+                                HorizontalOptions="Fill"
+                                Source="referfull.png"
+                                VerticalOptions="Fill"/>
+                            <Label
+                                Margin="12,12,70,12"
+                                Style="{DynamicResource BodyBold20}"
+                                Text="Refer to your friend and&#x0a;get reward of $100"
+                                TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                            Dark={DynamicResource AccentWhiteDark}}"/>
+                            <Border
+                                Grid.Row="1"
+                                Margin="12,0,12,12"
+                                Padding="35,7"
+                                HeightRequest="40"
+                                StrokeShape="RoundRectangle 20"
+                                StrokeThickness="0"
+                                HorizontalOptions="Start"
+                                VerticalOptions="Center"
+                                BackgroundColor="{DynamicResource Black}">
+                                <Label
+                                    Style="{DynamicResource BodyBold18withoutline}"
+                                    Text="Refer Now &gt;"
+                                    TextColor="{DynamicResource AccentWhiteLight}"
+                                    VerticalTextAlignment="Center"/>
+                                <Border.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ReferNowCommand}"/>
+                                </Border.GestureRecognizers>
+                            </Border>
+
+                        </Grid>
+
+                    </Border>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Grid>
+        <Grid
+            BackgroundColor="{AppThemeBinding Dark={StaticResource LightBackgroundColor}, Light={StaticResource DarkBackgroundColor}}"
+            Opacity="0.4"
+            IsVisible="{Binding IsLoading}"
+            InputTransparent="False"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            ZIndex="99"/>
+
+        <!-- Layer 2: Spinner -->
+        <ActivityIndicator
+            IsRunning="{Binding IsLoading}"
+            IsVisible="true"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            WidthRequest="60"
+            HeightRequest="60"
+            Color="{AppThemeBinding Dark={StaticResource DarkBackgroundColor}, Light={StaticResource LightBackgroundColor}}"
+            ZIndex="999"/>
+    </Grid>
+</ContentPage>

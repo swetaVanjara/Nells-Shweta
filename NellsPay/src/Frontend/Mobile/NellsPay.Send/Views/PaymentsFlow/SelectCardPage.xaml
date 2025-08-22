@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.PaymentsFlow.SelectCardPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Model="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.PaymentsFlow"
+    Title="SelectCardPage"
+    x:DataType="viewmodels:SelectCardVM"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <Grid
+        Padding="16,0"
+        RowDefinitions="Auto,*,150"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Select a Debit/credit card"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+
+        <CollectionView
+            x:Name="CardCollection"
+            Grid.Row="1"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding Cards}"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.Header>
+                <BoxView BackgroundColor="Transparent" HeightRequest="20" />
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Model:CardsModel">
+                    <Border
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                          Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeThickness="0"
+                        Style="{DynamicResource MainBorderStyle}">
+                        <Grid ColumnDefinitions="70,*,50" ColumnSpacing="10">
+                            <Border Padding="0,0,0,0" StrokeShape="RoundRectangle 4">
+                                <Image Aspect="AspectFill" Source="cardlast.png" />
+                            </Border>
+                            <VerticalStackLayout
+                                Grid.Column="1"
+                                Spacing="5"
+                                VerticalOptions="Center">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold16}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="{Binding CardType}" TextColor="{AppThemeBinding Light={DynamicResource Text1Light}, Dark={DynamicResource Text1Dark}}" />
+                                            <Span Text=" - " TextColor="{AppThemeBinding Light={DynamicResource Text1Light}, Dark={DynamicResource Text1Dark}}" />
+                                            <Span Text="{Binding LastFourDigits}" TextColor="{AppThemeBinding Light={DynamicResource Text1Light}, Dark={DynamicResource Text1Dark}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodyRegular14}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                Dark={DynamicResource Text2Dark}}"
+                                    VerticalTextAlignment="Start">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Expires on: " TextColor="{AppThemeBinding Light={DynamicResource Text2Light}, Dark={DynamicResource Text2Dark}}" />
+                                            <Span Text="{Binding ExpiredMonth}" TextColor="{AppThemeBinding Light={DynamicResource Text2Light}, Dark={DynamicResource Text2Dark}}" />
+                                            <Span Text="/" TextColor="{AppThemeBinding Light={DynamicResource Text2Light}, Dark={DynamicResource Text2Dark}}" />
+                                            <Span Text="{Binding ExpiredYear}" TextColor="{AppThemeBinding Light={DynamicResource Text2Light}, Dark={DynamicResource Text2Dark}}" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                            <Button
+                                Grid.ColumnSpan="3"
+                                BackgroundColor="Transparent"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectedCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid>
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="NellsPay.Send.Views.PopUpPages.AddCardOptionPopUp"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    HorizontalOptions="Fill"
+    VerticalOptions="End"
+    Color="Transparent">
+    <Grid x:Name="PopupContent" ColumnDefinitions="*">
+        <Border
+            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                              Dark={DynamicResource AccentWhiteDark}}"
+            StrokeShape="RoundRectangle 20,20,0,0"
+            StrokeThickness="0"
+            Style="{DynamicResource BorderBackground}">
+            <Grid
+                Padding="20,5,20,20"
+                RowDefinitions="Auto,Auto,Auto"
+                RowSpacing="20">
+                <Grid HeightRequest="30">
+                    <Border
+                        Margin="0,5,0,0"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                          Dark={DynamicResource Neutral300Dark}}"
+                        HeightRequest="4"
+                        StrokeShape="RoundRectangle 2"
+                        StrokeThickness="0"
+                        VerticalOptions="Start"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Label
+                    Grid.Row="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Add card"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"
+                    VerticalTextAlignment="Center" />
+                <VerticalStackLayout Grid.Row="2" Spacing="10">
+                    <Button
+              
+                       x:Name="Scan"
+                        Clicked="Scan_Clicked"
+                        CornerRadius="25"
+                        Style="{DynamicResource PrimaryButtonStyle}"
+                        Text="Scan Card"
+                        TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}" />
+                    <Button
+              x:Name="Add"
+    Clicked="Add_Clicked"
+
+     CornerRadius="25"
+     Style="{DynamicResource PrimaryButtonStyle}"
+     Text="Add Card"
+     TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                 Dark={DynamicResource AccentWhiteDark}}" />
+                </VerticalStackLayout>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</toolkit:Popup>

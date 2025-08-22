@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{A1AC8850-D424-40D2-9783-F794AC861A17}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{F0FB9296-8F95-44DF-AA00-7A96A120F5C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9644A614-AE18-497A-9A9D-C2107FAEB9DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackOffice", "BackOffice", "{83409D35-F0E1-487C-B012-2FDF85BF15F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NellsPay.Send", "src\Frontend\Mobile\NellsPay.Send\NellsPay.Send.csproj", "{3117D403-78D0-4A6B-81D8-25F5F5C07C75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F0FB9296-8F95-44DF-AA00-7A96A120F5C4} = {A1AC8850-D424-40D2-9783-F794AC861A17}
+		{9644A614-AE18-497A-9A9D-C2107FAEB9DB} = {A1AC8850-D424-40D2-9783-F794AC861A17}
+		{83409D35-F0E1-487C-B012-2FDF85BF15F9} = {A1AC8850-D424-40D2-9783-F794AC861A17}
+		{3117D403-78D0-4A6B-81D8-25F5F5C07C75} = {F0FB9296-8F95-44DF-AA00-7A96A120F5C4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC669DF0-9559-4649-BE26-CBFDD33BFEA2}
+	EndGlobalSection
+EndGlobal

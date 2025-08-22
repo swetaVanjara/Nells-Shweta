@@ -1,0 +1,347 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\nellsp\\NellsPay\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\viewmodels\\homeviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addcardsuccessfullypopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addcardsuccessfullypopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addcardsuccessfullypopup.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addcardsuccessfullypopup.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\viewmodels\\paymentsettingsviewmodels\\addmanuallyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\viewmodels\\paymentsettingsviewmodels\\addmanuallyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\successpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\successpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\models\\cardsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\models\\cardsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\successpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\successpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsflow\\confirmpaymentpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsflow\\confirmpaymentpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\profilepages\\termsorpolicypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\profilepages\\termsorpolicypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addmanuallypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addmanuallypage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addmanuallypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\addmanuallypage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\scancard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\scancard.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\paymentsettingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\paymentsettingspages\\paymentsettingspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\addcardoptionpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\addcardoptionpopup.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|d:\\nellsp\\nellspay\\src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\addcardoptionpopup.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{3117D403-78D0-4A6B-81D8-25F5F5C07C75}|src\\Frontend\\Mobile\\NellsPay.Send\\NellsPay.Send.csproj|solutionrelative:src\\frontend\\mobile\\nellspay.send\\views\\popuppages\\addcardoptionpopup.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AddCardSuccessfullyPopUp.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml",
+              "ViewState": "AgIAACAAAAAAAAAAAAAowCoAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:39:38.068Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddCardSuccessfullyPopUp.xaml.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddCardSuccessfullyPopUp.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwBoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:40:49.452Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SuccessPage.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:39:53.909Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SuccessPage.xaml.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\SuccessPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:40:53.129Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TermsOrPolicyPage.xaml.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\ProfilePages\\TermsOrPolicyPage.xaml.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\ProfilePages\\TermsOrPolicyPage.xaml.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\ProfilePages\\TermsOrPolicyPage.xaml.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\ProfilePages\\TermsOrPolicyPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:43:18.138Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddManuallyVM.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\PaymentSettingsViewModels\\AddManuallyVM.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\PaymentSettingsViewModels\\AddManuallyVM.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\PaymentSettingsViewModels\\AddManuallyVM.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\PaymentSettingsViewModels\\AddManuallyVM.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAcwHIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:36:35.62Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeViewModel.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\HomeViewModel.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\HomeViewModel.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\HomeViewModel.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\HomeViewModel.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAcwKYAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T22:03:59.582Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomePage.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\HomePage.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\HomePage.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\HomePage.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\HomePage.xaml",
+              "ViewState": "AgIAABsBAAAAAAAAAAApwC0BAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T22:04:34.814Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CardsModel.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Models\\CardsModel.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Models\\CardsModel.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Models\\CardsModel.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Models\\CardsModel.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwBsAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T20:01:02.188Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ConfirmPaymentPage.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentsFlow\\ConfirmPaymentPage.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentsFlow\\ConfirmPaymentPage.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentsFlow\\ConfirmPaymentPage.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentsFlow\\ConfirmPaymentPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:52:18.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\BaseViewModel.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\BaseViewModel.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\ViewModels\\BaseViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:42:59.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AddManuallyPage.xaml.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:36:30.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AddManuallyPage.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\AddManuallyPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:36:27.278Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentSettingsPage.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\PaymentSettingsPage.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\PaymentSettingsPage.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\PaymentSettingsPage.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\PaymentSettingsPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:34:47.596Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ScanCard.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\ScanCard.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\ScanCard.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\ScanCard.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PaymentSettingsPages\\ScanCard.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:33:19.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "AddCardOptionPopUp.xaml.cs",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml.cs",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml.cs",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml.cs",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAwwCwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-26T19:31:56.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AddCardOptionPopUp.xaml",
+              "DocumentMoniker": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml",
+              "RelativeDocumentMoniker": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml",
+              "ToolTip": "D:\\nellsp\\NellsPay\\src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml",
+              "RelativeToolTip": "src\\Frontend\\Mobile\\NellsPay.Send\\Views\\PopUpPages\\AddCardOptionPopUp.xaml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-26T19:31:15.871Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:helpers="clr-namespace:NellsPay.Send.Helpers"
+    x:Class="NellsPay.Send.Views.PaymentWebview"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Title="PaymentWebview">
+
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid>
+        <Grid
+            RowDefinitions="Auto,*"
+            RowSpacing="15">
+            <Grid ColumnDefinitions="50,*,50">
+                <Button
+                    Grid.Column="0"
+                    Padding="2,2,2,2"
+                    BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                    Command="{Binding BackCommand}"
+                    Style="{DynamicResource LargeCircularIconButtonStyle}"
+                    Text="{DynamicResource IconChevronleft}"
+                    TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                Dark={DynamicResource Neutral800Dark}}"/>
+                <Label
+                    Grid.Column="1"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource BodyBold20}"
+                    Text="Confirm Payment"
+                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                Dark={DynamicResource Text1Dark}}"
+                    VerticalTextAlignment="Center"/>
+
+            </Grid>
+            <helpers:CustomWebView
+                x:Name="MyWebView"
+                Source="{Binding UrlWebView}"
+                Grid.Row="1"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
+
+        </Grid>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.ProfilePages.FaqsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource AccentBlack}, Light={StaticResource Neutral100Light}}" StatusBarStyle="DarkContent" />
+    </ContentPage.Behaviors>
+    <Grid
+        Margin="15,8,15,0"
+        RowDefinitions="Auto,*"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Faqs"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+        </Grid>
+        <CollectionView
+            x:Name="FaqsCollection"
+            Grid.Row="1"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding FaqsList}"
+            VerticalScrollBarVisibility="Never">
+            <CollectionView.Header>
+                <BoxView BackgroundColor="Transparent" HeightRequest="20" />
+            </CollectionView.Header>
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border
+                        x:Name="Item"
+                        Padding="20,20"
+                        Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                     Dark={DynamicResource AccentWhiteDark}}"
+                        StrokeShape="RoundRectangle 30"
+                        StrokeThickness="0"
+                        Style="{DynamicResource BaseBorderStyle}">
+                        <Grid RowDefinitions="Auto,Auto">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <Label
+                                    HorizontalTextAlignment="Start"
+                                    Style="{DynamicResource BodySemiBold18}"
+                                    Text="{Binding Title}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                Dark={DynamicResource Text1Dark}}"
+                                    VerticalTextAlignment="Center" />
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="18"
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource LabelIconeStyle}"
+                                    Text="{DynamicResource IconChevrondown}"
+                                    TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                                Dark={DynamicResource Neutral500Dark}}"
+                                    VerticalTextAlignment="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding Expanded}"
+                                            TargetType="Label"
+                                            Value="True">
+                                            <Setter Property="Text" Value="{DynamicResource IconChevronup}" />
+
+                                        </DataTrigger>
+
+                                    </Label.Triggers>
+                                </Label>
+                                <Button
+                                    Grid.Column="1"
+                                    BackgroundColor="Transparent"
+                                    BindingContext="{Binding Source={x:Reference FaqsCollection}, Path=BindingContext}"
+                                    Command="{Binding ExpandCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" />
+
+                            </Grid>
+                            <Label
+                                Grid.Row="1"
+                                Margin="0,10"
+                                HorizontalTextAlignment="Start"
+                                IsVisible="{Binding Expanded}"
+                                Style="{DynamicResource BodyRegular14}"
+                                Text="{Binding Description}"
+                                TextColor="{DynamicResource Neutral600}"
+                                VerticalTextAlignment="Center" />
+                        </Grid>
+
+                    </Border>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+
+    </Grid>
+</ContentPage>

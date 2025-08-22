@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="NellsPay.Send.CustomControls.NewCustomTextField"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cc="clr-namespace:NellsPay.Send.CustomControls"
+    x:Name="Root">
+    <Grid RowDefinitions="auto,auto,auto" RowSpacing="2">
+        <!--  Label  -->
+        <Label
+            IsVisible="{Binding Label, Source={x:Reference Root}, Converter={StaticResource NullToBoolConverter}}"
+            Text="{Binding Label, Source={x:Reference Root}}"
+            TextColor="{DynamicResource TextPlaceholder}" />
+
+        <!--  Input Field Container  -->
+        <Border
+            x:Name="borderContainer"
+            Grid.Row="1"
+            Padding="{OnPlatform Android='12,0',
+                                 iOS='12,2'}"
+            BackgroundColor="{DynamicResource SurfaceContainerLowest}"
+            HeightRequest="44"
+            HorizontalOptions="Fill"
+            StrokeThickness="1">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="16" />
+            </Border.StrokeShape>
+
+            <Grid ColumnDefinitions="Auto,*,Auto,Auto">
+                <!--  Leading Icon  -->
+                <Grid IsVisible="{Binding LeadingIcon, Source={x:Reference Root}, Converter={StaticResource NullToBoolConverter}}">
+                    <!--  Flag or Icon Image  -->
+                    <Image
+                        x:Name="leadingImage"
+                        Margin="0,0,5,0"
+                        Aspect="AspectFit"
+                        HeightRequest="24"
+                        IsVisible="{Binding IsLeadingImageVisible, Source={x:Reference Root}}"
+                        Source="{Binding LeadingImageSource, Source={x:Reference Root}}"
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
+
+                    <!--  Icon from font  -->
+                    <Image
+                        x:Name="leadingIconImage"
+                        Margin="0,0,5,0"
+                        HeightRequest="20"
+                        IsVisible="{Binding IsLeadingIconVisible, Source={x:Reference Root}}"
+                        VerticalOptions="Center"
+                        WidthRequest="20">
+                        <Image.Source>
+                            <FontImageSource
+                                x:Name="leadingIconSource"
+                                FontFamily="Ficons"
+                                Glyph="{Binding LeadingIcon, Source={x:Reference Root}}"
+                                Color="{DynamicResource Gray900}" />
+                        </Image.Source>
+                    </Image>
+                </Grid>
+
+                <!--  Leading Text (for picker mode)  -->
+                <Label
+                    x:Name="leadingTextLabel"
+                    Grid.Column="1"
+                    FontSize="16"
+                    HorizontalOptions="Start"
+                    IsVisible="{Binding IsPickerMode, Source={x:Reference Root}}"
+                    Text="{Binding PickerText, Source={x:Reference Root}}"
+                    TextColor="{Binding EntryTextColor, Source={x:Reference Root}}"
+                    VerticalOptions="Center" />
+
+                <!--  Input Field  -->
+                <cc:BorderlessEntry
+                    x:Name="entry"
+                    Grid.Column="1"
+                    Margin="0,2,0,0"
+                    FontSize="16"
+                    HeightRequest="40"
+                    IsPassword="{Binding IsPassword, Source={x:Reference Root}}"
+                    IsVisible="{Binding IsEntryVisible, Source={x:Reference Root}}"
+                    Placeholder="{Binding Placeholder, Source={x:Reference Root}}"
+                    PlaceholderColor="{DynamicResource TextPlaceholder}"
+                    Style="{Binding EntryStyle, Source={x:Reference Root}}"
+                    Text="{Binding Text, Source={x:Reference Root}}"
+                    TextColor="{Binding EntryTextColor, Source={x:Reference Root}}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+
+                <!--  Secondary Text (for currency/value)  -->
+                <Label
+                    x:Name="secondaryTextLabel"
+                    Grid.Column="2"
+                    Margin="5,0,5,0"
+                    FontSize="16"
+                    IsVisible="{Binding SecondaryText, Source={x:Reference Root}, Converter={StaticResource NullToBoolConverter}}"
+                    Text="{Binding SecondaryText, Source={x:Reference Root}}"
+                    TextColor="{DynamicResource TextDefault}"
+                    VerticalOptions="Center" />
+
+                <!--  Info Icon  -->
+                <Image
+                    Grid.Column="2"
+                    Margin="5,0,5,0"
+                    HeightRequest="20"
+                    IsVisible="{Binding ShowInfoIcon, Source={x:Reference Root}}"
+                    WidthRequest="20">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="Ficons"
+                            Glyph="{Binding InfoIcon, Source={x:Reference Root}}"
+                            Color="{DynamicResource Gray900}" />
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding InfoIconCommand, Source={x:Reference Root}}" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <!--  Trailing Icon  -->
+                <Image
+                    Grid.Column="3"
+                    Margin="5,0,0,0"
+                    HeightRequest="20"
+                    IsVisible="{Binding TrailingIcon, Source={x:Reference Root}, Converter={StaticResource NullToBoolConverter}}"
+                    WidthRequest="20">
+                    <Image.Source>
+                        <FontImageSource
+                            FontFamily="Ficons"
+                            Glyph="{Binding TrailingIcon, Source={x:Reference Root}}"
+                            Color="{DynamicResource Gray900}" />
+                    </Image.Source>
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TrailingIconCommand, Source={x:Reference Root}}" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </Border>
+
+        <!--  Supporting Text  -->
+        <Label
+            x:Name="supportingTextLabel"
+            Grid.Row="2"
+            Margin="5,0,0,0"
+            IsVisible="{Binding SupportingText, Source={x:Reference Root}, Converter={StaticResource NullToBoolConverter}}"
+            Text="{Binding SupportingText, Source={x:Reference Root}}"
+            TextColor="{DynamicResource TextPlaceholder}">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding HasError, Source={x:Reference Root}}"
+                    TargetType="Label"
+                    Value="True">
+                    <Setter Property="Text" Value="{Binding ErrorLabel, Source={x:Reference Root}}" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </Grid>
+</ContentView>

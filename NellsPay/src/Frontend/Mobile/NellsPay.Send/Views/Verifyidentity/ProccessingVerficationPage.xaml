@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.Verifyidentity.ProccessingVerficationPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:NellsPay.Send.Models"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.Verifyidentity"
+    x:DataType="viewmodels:ProccessingVerficationVM"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+
+    <Grid
+        Padding="16,16,16,0"
+        RowDefinitions="Auto,*,Auto"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconClose}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}"/>
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Verify identity"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+        </Grid>
+        <VerticalStackLayout Grid.Row="1"
+                Spacing="16">
+            <Label
+                HorizontalTextAlignment="Start"
+                Style="{DynamicResource H2SemiBold24}"
+                Text="Please wait.."
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+            <Label
+                HorizontalTextAlignment="Start"
+                Style="{DynamicResource BodyRegular12}"
+                Text="We processing information's and validating please wait . it might take up to 3 ~ 4 minutes ."
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                            Dark={DynamicResource Neutral500Dark}}"
+                VerticalTextAlignment="Center"/>
+
+
+            <VerticalStackLayout Spacing="16">
+                <Grid
+                    ColumnDefinitions="20,*"
+                    ColumnSpacing="10"
+                    IsVisible="False">
+                    <ActivityIndicator
+                        HeightRequest="20"
+                        IsRunning="True"
+                        WidthRequest="20"
+                        Color="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                Dark={DynamicResource Neutral500Dark}}"/>
+                    <Border
+                        BackgroundColor="{DynamicResource Secondary500}"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        VerticalOptions="End"
+                        WidthRequest="20">
+                        <Label
+                            FontSize="12"
+                            Style="{DynamicResource LabelIconeStyle}"
+                            Text="{DynamicResource IconCheck}"
+                            TextColor="{DynamicResource AccentWhite}"/>
+                        <Border.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Proccess1.isProccessing}"
+                                TargetType="Border"
+                                Value="2">
+                                <Setter Property="IsVisible"
+                                        Value="True"/>
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Start"
+                        Style="{DynamicResource BodySemiBold16}"
+                        Text="{Binding Proccess1.ProccessTitle}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center"/>
+                    <Grid.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Proccess1.isProccessing}"
+                            TargetType="Grid"
+                            Value="1">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding Proccess1.isProccessing}"
+                            TargetType="Grid"
+                            Value="2">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                </Grid>
+                <Grid
+                    ColumnDefinitions="20,*"
+                    ColumnSpacing="10"
+                    IsVisible="False">
+                    <ActivityIndicator
+                        HeightRequest="20"
+                        IsRunning="True"
+                        WidthRequest="20"
+                        Color="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                Dark={DynamicResource Neutral500Dark}}"/>
+                    <Border
+                        BackgroundColor="{DynamicResource Secondary500}"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        VerticalOptions="End"
+                        WidthRequest="20">
+                        <Label
+                            FontSize="12"
+                            Style="{DynamicResource LabelIconeStyle}"
+                            Text="{DynamicResource IconCheck}"
+                            TextColor="{DynamicResource AccentWhite}"/>
+                        <Border.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Proccess2.isProccessing}"
+                                TargetType="Border"
+                                Value="2">
+                                <Setter Property="IsVisible"
+                                        Value="True"/>
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Start"
+                        Style="{DynamicResource BodySemiBold16}"
+                        Text="{Binding Proccess2.ProccessTitle}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center"/>
+                    <Grid.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Proccess2.isProccessing}"
+                            TargetType="Grid"
+                            Value="1">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding Proccess2.isProccessing}"
+                            TargetType="Grid"
+                            Value="2">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                </Grid>
+                <Grid
+                    ColumnDefinitions="20,*"
+                    ColumnSpacing="10"
+                    IsVisible="False">
+                    <ActivityIndicator
+                        HeightRequest="20"
+                        IsRunning="True"
+                        WidthRequest="20"
+                        Color="{AppThemeBinding Light={DynamicResource Neutral500Light},
+                                                Dark={DynamicResource Neutral500Dark}}"/>
+                    <Border
+                        BackgroundColor="{DynamicResource Secondary500}"
+                        HeightRequest="20"
+                        HorizontalOptions="End"
+                        IsVisible="False"
+                        StrokeShape="RoundRectangle 10"
+                        StrokeThickness="0"
+                        VerticalOptions="End"
+                        WidthRequest="20">
+                        <Label
+                            FontSize="12"
+                            Style="{DynamicResource LabelIconeStyle}"
+                            Text="{DynamicResource IconCheck}"
+                            TextColor="{DynamicResource AccentWhite}"/>
+                        <Border.Triggers>
+                            <DataTrigger
+                                Binding="{Binding Proccess3.isProccessing}"
+                                TargetType="Border"
+                                Value="2">
+                                <Setter Property="IsVisible"
+                                        Value="True"/>
+                            </DataTrigger>
+
+                        </Border.Triggers>
+                    </Border>
+                    <Label
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Start"
+                        Style="{DynamicResource BodySemiBold16}"
+                        Text="{Binding Proccess3.ProccessTitle}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center"/>
+                    <Grid.Triggers>
+                        <DataTrigger
+                            Binding="{Binding Proccess3.isProccessing}"
+                            TargetType="Grid"
+                            Value="1">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding Proccess3.isProccessing}"
+                            TargetType="Grid"
+                            Value="2">
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </DataTrigger>
+                    </Grid.Triggers>
+                </Grid>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout  Grid.Row="3"
+                Padding="16"
+                Spacing="10">
+            <Border BackgroundColor="#330066FF"
+                    Style="{DynamicResource MainBorderStyle}">
+                <Grid ColumnDefinitions="Auto,*"
+                        ColumnSpacing="10">
+                    <Label
+                        FontSize="18"
+                        Style="{DynamicResource LabelIconeStyle}"
+                        Text="{DynamicResource IconInfo}"
+                        TextColor="{AppThemeBinding Light={DynamicResource Information400Light},
+                                    Dark={DynamicResource Information400Dark}}"/>
+                    <Label
+                        Grid.Column="1"
+                        Style="{DynamicResource BodyMedium12}"
+                        Text="Please prepare your KYC documents in case we require verification to complete this transfer"
+                        TextColor="{AppThemeBinding Light={DynamicResource Information400Light},
+                                    Dark={DynamicResource Information400Dark}}"
+                        VerticalTextAlignment="Center"/>
+
+                </Grid>
+            </Border>
+            <Image Source="veriff.png"
+                    HeightRequest="20"
+                    HorizontalOptions="Center"/>
+
+        </VerticalStackLayout>
+
+    </Grid>
+</ContentPage>

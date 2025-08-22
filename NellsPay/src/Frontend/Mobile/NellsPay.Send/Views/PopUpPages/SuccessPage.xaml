@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="NellsPay.Send.Views.PopUpPages.SuccessPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    CanBeDismissedByTappingOutsideOfPopup="False"
+    HorizontalOptions="Fill"
+    VerticalOptions="End"
+    Color="Transparent">
+    <Grid x:Name="PopupContent" ColumnDefinitions="*">
+        <Border
+            StrokeShape="RoundRectangle 20,20,0,0"
+            StrokeThickness="0"
+            Style="{DynamicResource BorderBackground}">
+            <Grid
+                Padding="20,5,20,20"
+                RowDefinitions="Auto,Auto,Auto,Auto"
+                RowSpacing="20">
+                <Grid HeightRequest="30">
+                    <Border
+                        Margin="0,5,0,0"
+                        BackgroundColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                          Dark={DynamicResource Neutral300Dark}}"
+                        HeightRequest="4"
+                        StrokeShape="RoundRectangle 2"
+                        StrokeThickness="0"
+                        VerticalOptions="Start"
+                        WidthRequest="30" />
+                    <Grid.GestureRecognizers>
+                        <SwipeGestureRecognizer Direction="Down" Swiped="SwipeGestureRecognizer_Swiped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Border
+                    x:Name="SuccessLogo"
+                    Grid.Row="1"
+                    Margin="1"
+                    BackgroundColor="{DynamicResource NpGreen}"
+                    HeightRequest="100"
+                    StrokeShape="RoundRectangle 50"
+                    StrokeThickness="0"
+                    VerticalOptions="Start"
+                    WidthRequest="100">
+                    <Label
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="fontelloicon"
+                        FontSize="50"
+                        HeightRequest="80"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static Icons:FontIconFontello.Ok}"
+                        TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                        VerticalTextAlignment="Center"
+                        WidthRequest="80" />
+                </Border>
+                <Border
+                    x:Name="FailedLogo"
+                    Grid.Row="1"
+                    Margin="1"
+                    BackgroundColor="{DynamicResource NpRed}"
+                    HeightRequest="100"
+                    StrokeShape="RoundRectangle 50"
+                    StrokeThickness="0"
+                    VerticalOptions="Start"
+                    WidthRequest="100">
+                    <Label
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        FontFamily="fontelloicon"
+                        FontSize="50"
+                        HeightRequest="80"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static Icons:FontIconFontello.Cancel}"
+                        TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                    Dark={DynamicResource AccentWhiteDark}}"
+                        VerticalTextAlignment="Center"
+                        WidthRequest="80" />
+                </Border>
+                <StackLayout
+                    Grid.Row="2"
+                    Margin="0,0,0,20"
+                    Spacing="10">
+                    <Label
+                        x:Name="PopUpDescription"
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource H2SemiBold24}"
+                        Text="Recipient added successfully"
+                        TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                                    Dark={DynamicResource Neutral800Dark}}"
+                        VerticalTextAlignment="Center" />
+
+                </StackLayout>
+
+                <Button
+                    x:Name="OkButton"
+                    Grid.Row="3"
+                    HeightRequest="60"
+                    Margin="0,20,0,0"
+                    Clicked="Button_Clicked"
+                    CornerRadius="25"
+                    Style="{DynamicResource PrimaryButtonStyle}"
+                    Text="Okay"
+                    TextColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                Dark={DynamicResource AccentWhiteDark}}" />
+            </Grid>
+        </Border>
+    </Grid>
+
+</toolkit:Popup>

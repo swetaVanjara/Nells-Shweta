@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light}, Dark={DynamicResource AccentBlack}}"
+    NavigationPage.HasNavigationBar="False"
+    x:Class="NellsPay.Send.Views.MoneyTransferFlowPages.ChooseReasonPage">
+    <ContentPage.Behaviors>
+        <toolkit:StatusBarBehavior
+            StatusBarColor="{DynamicResource PageBackground}"
+            StatusBarStyle="LightContent"/>
+    </ContentPage.Behaviors>
+    <Grid
+        Padding="16,16,16,0"
+        RowDefinitions="Auto,*,Auto"
+        RowSpacing="15">
+        <Grid ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}"/>
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Choose A Reason"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <CollectionView
+                x:Name="ReasonCollection"
+                HorizontalScrollBarVisibility="Never"
+                ItemsSource="{Binding SendingReason}"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="16"
+                            Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <BoxView BackgroundColor="Transparent"
+                            HeightRequest="0"/>
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView BackgroundColor="Transparent"
+                            HeightRequest="0"/>
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Border
+                            Padding="16,20,16,30"
+                            StrokeThickness="0"
+                            BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}"
+                            Style="{DynamicResource MainBorderStyle}">
+                            <Grid 
+                                ColumnDefinitions="*,50"
+                                ColumnSpacing="10">
+                                <VerticalStackLayout 
+                                    VerticalOptions="Center"
+                                    Spacing="5">
+                                    <Label
+                                        Style="{DynamicResource BodySemiBold18}"
+                                        Text="{Binding ReasonName}"
+                                        VerticalOptions="Center"
+                                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                    Dark={DynamicResource Text1Dark}}"
+                                        VerticalTextAlignment="Center"/>
+                                </VerticalStackLayout>
+                                <Border
+                                    Grid.Column="1"
+                                    Background="{AppThemeBinding Light={DynamicResource Neutral200Light},
+                                                                 Dark={DynamicResource Neutral200Dark}}"
+                                    HeightRequest="40"
+                                    StrokeShape="RoundRectangle 20"
+                                    StrokeThickness="0"
+                                    VerticalOptions="Start"
+                                    WidthRequest="40">
+                                    <Label
+                                        FontSize="18"
+                                        Style="{DynamicResource LabelIconeStyle}"
+                                        Text="{DynamicResource IconCheck}"
+                                        TextColor="Black"/>
+                                </Border>
+                            </Grid>
+                            
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectReasonCommand}"
+                                    CommandParameter="{Binding .}"/>
+                            </Border.GestureRecognizers>
+                        </Border>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>

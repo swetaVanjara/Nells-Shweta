@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.LoginPages.PINPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    BackgroundColor="{DynamicResource PageBackground}"
+    NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="Auto,*" RowSpacing="15">
+        <Grid Padding="16,16,16,0" ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Padding="2,2,2,2"
+                BackgroundColor="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                  Dark={DynamicResource AccentWhiteDark}}"
+                Clicked="back_Clicked"
+                Style="{DynamicResource LargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconChevronleft}"
+                TextColor="{AppThemeBinding Light={DynamicResource Neutral800Light},
+                                            Dark={DynamicResource Neutral800Dark}}" />
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Setup PIN code"
+                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                            Dark={DynamicResource Text1Dark}}"
+                VerticalTextAlignment="Center" />
+
+
+        </Grid>
+
+        <Grid Grid.Row="1" RowDefinitions="Auto,*">
+            <Grid
+                Margin="0,20"
+                RowDefinitions="Auto,Auto"
+                RowSpacing="30"
+                VerticalOptions="Center">
+                <VerticalStackLayout Spacing="10" Margin="0,50">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource BodySemiBold18}"
+                        Text="Enter your 4 digits PIN"
+                        TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                    Dark={DynamicResource Text1Dark}}"
+                        VerticalTextAlignment="Center" />
+                    <Grid
+                        ColumnDefinitions="Auto,Auto,Auto,Auto"
+                        ColumnSpacing="10"
+                        HorizontalOptions="Center">
+                        <Border
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="Pin1"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                IsReadOnly="True"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="Pin2"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                    IsReadOnly="True"
+                                MaxLength="1"
+                                Placeholder="*"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="Pin3"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                Placeholder="*"
+                                    IsReadOnly="True"
+                                TextChanged="PinEntryChanged"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="4"
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="Pin4"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                    IsReadOnly="True"
+                                Keyboard="Numeric"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                MaxLength="1"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+                <VerticalStackLayout IsVisible="False" Grid.Row="1" Spacing="10">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource BodySemiBold18}"
+                        Text="Re-enter your 4 digits PIN"
+                         TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                             Dark={DynamicResource Text1Dark}}"
+                        VerticalTextAlignment="Center" />
+                    <Grid
+                        ColumnDefinitions="Auto,Auto,Auto,Auto"
+                        ColumnSpacing="10"
+                        HorizontalOptions="Center">
+                        <Border
+                            HeightRequest="80"
+                        
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                                StrokeShape="RoundRectangle 25"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="ConfirmPin1"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                MaxLength="1"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="1"
+                        
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                                Style="{DynamicResource MainEntryBorderStyle}"
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="ConfirmPin2"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                MaxLength="1"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                               Style="{DynamicResource MainEntryBorderStyle}"
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                             
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="ConfirmPin3"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                        <Border
+                            Grid.Column="4"
+                            Style="{DynamicResource MainEntryBorderStyle}"
+                            HeightRequest="80"
+                            StrokeShape="RoundRectangle 25"
+                          
+                            WidthRequest="80">
+                            <Entry
+                                x:Name="ConfirmPin4"
+                                FontFamily="SFRegular"
+                                FontSize="40"
+                                HorizontalTextAlignment="Center"
+                                IsTextPredictionEnabled="False"
+                                Keyboard="Numeric"
+                                MaxLength="1"
+                                  PlaceholderColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                     Dark={DynamicResource Text3Dark}}"
+ 
+  TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                              Dark={DynamicResource Text1Dark}}"
+                                Placeholder="*"
+                                TextChanged="PinEntryChanged"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+                        </Border>
+                    </Grid>
+                </VerticalStackLayout>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Margin="20"
+                ColumnSpacing="20"
+                RowSpacing="10"
+                VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                         TextColor="{AppThemeBinding Light=#1E1160,
+                             Dark={DynamicResource Text1Dark}}"
+                        Text="1"
+                        />
+                </Border>
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="2"
+                         TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}"/>
+                </Border>
+                <Border
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="3"
+                       TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}"/>
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="4"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="5"
+                        TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="6"
+                        TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="7"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}"/>
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="8"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="9"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="BiometricClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        ImageSource="fingerprint.png"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    BackgroundColor="{DynamicResource PageBackground}"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="NumberClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        Text="0"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+                <Border
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    BackgroundColor="Transparent"
+                    HeightRequest="76"
+                    StrokeShape="RoundRectangle 38"
+                    StrokeThickness="0"
+                    Style="{DynamicResource BorderBackground}"
+                    WidthRequest="76">
+                    <Button
+                        BackgroundColor="Transparent"
+                        Clicked="DeleteClicked"
+                        FontFamily="SFBlackBold"
+                        FontSize="20"
+                        ImageSource="backxsignuo.png"
+                          TextColor="{AppThemeBinding Light=#1E1160,
+      Dark={DynamicResource Text1Dark}}" />
+                </Border>
+
+            </Grid>
+        </Grid>
+
+
+
+
+
+    </Grid>
+
+</ContentPage>

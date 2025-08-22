@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="NellsPay.Send.Views.Notification.NotificatiosPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Icons="clr-namespace:NellsPay.Send.Models"
+    xmlns:Model="clr-namespace:NellsPay.Send.Models.Notificatio"
+    xmlns:viewmodels="clr-namespace:NellsPay.Send.ViewModels.Notification"
+    x:DataType="viewmodels:NotificatiosVM"
+    Background="{AppThemeBinding Light={DynamicResource Neutral100Light},
+                                 Dark={DynamicResource AccentBlack}}"
+    Shell.NavBarIsVisible="False">
+    <Grid
+        Padding="0,16,0,0"
+        RowDefinitions="Auto,Auto,*"
+        RowSpacing="15">
+        <Grid Padding="16,0,16,0" ColumnDefinitions="50,*,50">
+            <Button
+                Grid.Column="0"
+                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                             Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding BackCommand}"
+                Style="{DynamicResource BackLargeCircularIconButtonStyle}" />
+
+            <Label
+                Grid.Column="1"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyBold20}"
+                Text="Notification"
+                VerticalTextAlignment="Center" />
+            <Button
+                Grid.Column="2"
+                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                             Dark={DynamicResource AccentWhiteDark}}"
+                Command="{Binding ExtraCommand}"
+                Style="{DynamicResource BackLargeCircularIconButtonStyle}"
+                Text="{DynamicResource IconDot}" />
+
+        </Grid>
+        <CollectionView
+            Grid.Row="1"
+            HeightRequest="36"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding NotificatiosCatigory}"
+            VerticalScrollBarVisibility="Never">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="15" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.Header>
+                <BoxView BackgroundColor="Transparent" HeightRequest="10" />
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <BoxView BackgroundColor="Transparent" HeightRequest="0" />
+            </CollectionView.Footer>
+            <CollectionView.ItemTemplate>
+                <!--<DataTemplate x:DataType="Model:NotificationCatigory">
+                    <Button
+                        Padding="30,10"
+                        BorderColor="{AppThemeBinding Light={DynamicResource Neutral300Light},
+                                                      Dark={DynamicResource Neutral300Dark}}"
+                        BorderWidth="1"
+                        Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectCatigoryCommand}"
+                        CommandParameter="{Binding .}"
+                        CornerRadius="8"
+                        FontFamily="FRegular"
+                        FontSize="14"
+                        HeightRequest="40"
+                        Text="{Binding CatigoryTitle}">
+                        <Button.Triggers>
+                            <DataTrigger
+                                Binding="{Binding IsActive}"
+                                TargetType="Button"
+                                Value="True">
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light={DynamicResource AccentWhiteLight}, Dark={DynamicResource AccentWhiteDark}}" />
+                                <Setter Property="Background" Value="{AppThemeBinding Light={DynamicResource Neutral800Light}, Dark={DynamicResource Neutral800Dark}}" />
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding IsActive}"
+                                TargetType="Button"
+                                Value="false">
+                                <Setter Property="TextColor" Value="{AppThemeBinding Light={DynamicResource Text2Light}, Dark={DynamicResource Text2Dark}}" />
+                                <Setter Property="Background" Value="{AppThemeBinding Light={DynamicResource Neutral50Light}, Dark={DynamicResource Neutral50Dark}}" />
+                            </DataTrigger>
+                        </Button.Triggers>
+                    </Button>
+                </DataTemplate>-->
+                <DataTemplate x:DataType="Model:NotificationCatigory">
+                    <Grid
+                        Padding="1"
+                        BackgroundColor="Transparent"
+                        HeightRequest="38">
+                        <Grid BackgroundColor="Transparent">
+                            <Border
+                                Style="{DynamicResource BaseBorderStyleNotificationInActive}">
+                                <Border.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsActive}"
+                                        TargetType="Border"
+                                        Value="True">
+                                        <Setter Property="Style" Value="{DynamicResource BaseBorderStyleNotificationActive}" />
+                                    </DataTrigger>
+
+                                </Border.Triggers>
+                            </Border>
+                            <Label
+                                Padding="30,10"
+                                Text="{Binding CatigoryTitle}"
+                                Style="{DynamicResource BodySemiBold14NotificationInActive}">
+                                <Label.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsActive}"
+                                        TargetType="Label"
+                                        Value="True">
+                                        <Setter Property="Style" Value="{DynamicResource BodySemiBold14NotificationActive}" />
+
+                                    </DataTrigger>
+
+                                </Label.Triggers>
+                            </Label>
+                            <Button
+                                BackgroundColor="Transparent"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.SelectCatigoryCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Grid Grid.Row="2" Padding="16,0,16,0">
+            <CollectionView
+                x:Name="TransactionsCollection"
+                HorizontalScrollBarVisibility="Never"
+                IsGrouped="True"
+                ItemsSource="{Binding GroupNotificatios}"
+                VerticalScrollBarVisibility="Never">
+                <CollectionView.GroupHeaderTemplate>
+                    <DataTemplate x:DataType="{x:Null}">
+                        <Grid
+                            x:Name="GroupItem"
+                            Padding="18,5,5,0"
+                            BackgroundColor="Transparent">
+
+                            <Label
+                                HorizontalOptions="Start"
+                                Style="{DynamicResource BodySemiBold14}"
+                                Text="{Binding Key}"
+                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                            Dark={DynamicResource Text1Dark}}"
+                                VerticalTextAlignment="End" />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.GroupHeaderTemplate>
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout ItemSpacing="15" Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.Header>
+                    <BoxView BackgroundColor="Transparent" HeightRequest="20" />
+                </CollectionView.Header>
+                <CollectionView.Footer>
+                    <BoxView BackgroundColor="Transparent" HeightRequest="20" />
+                </CollectionView.Footer>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="Model:NotificatiosModel">
+                        <VerticalStackLayout>
+                            <Border
+                                Padding="16,10"
+                                Background="{AppThemeBinding Light={DynamicResource AccentWhiteLight},
+                                                             Dark={DynamicResource AccentWhiteDark}}"
+                                StrokeThickness="0"
+                                Style="{DynamicResource MainBorderStyle}">
+                                <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+                                    <Border
+                                        Margin="8"
+                                        BackgroundColor="#1FFFDD33"
+                                        HeightRequest="45"
+                                        Stroke="Transparent"
+                                        StrokeShape="RoundRectangle 25"
+                                        WidthRequest="45">
+                                        <Image Source="{Binding Image}" />
+                                    </Border>
+
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Spacing="5"
+                                        VerticalOptions="Center">
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label
+                                                Style="{DynamicResource BodySemiBold14}"
+                                                Text="{Binding Title}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text1Light},
+                                                                            Dark={DynamicResource Text1Dark}}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                Style="{DynamicResource BodyMedium12}"
+                                                Text="{Binding Date, StringFormat='{0:hh\\:mm tt}'}"
+                                                TextColor="{AppThemeBinding Light={DynamicResource Text3Light},
+                                                                            Dark={DynamicResource Text3Dark}}" />
+                                        </Grid>
+
+                                        <Label
+                                            Style="{DynamicResource BodyRegular14}"
+                                            Text="{Binding Description}"
+                                            TextColor="{AppThemeBinding Light={DynamicResource Text2Light},
+                                                                        Dark={DynamicResource Text2Dark}}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
+        </Grid>
+
+
+
+    </Grid>
+</ContentPage>
