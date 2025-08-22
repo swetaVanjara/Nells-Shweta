@@ -1,0 +1,64 @@
+name: maui Build
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    branches: [ "main" ]
+    paths-ignore:
+      - "**.md"
+      - '**/*.gitignore'
+      - '**/*.gitattributes'
+      - '**/*.yml'
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  vars:
+    runs-on: ubuntu-22.04
+    environment: dev
+    outputs:      
+      buildVersion: ${{ vars.BUILD_VERSION }}
+      dotnetVersion: ${{ vars.DOTNET_VERSION }}
+      xcodeVersion: ${{ vars.XCODE_VERSION }}
+      dotnetVersionTargets:  ${{ vars.DOTNET_VERSION_TARGETS }}
+      csprojToBuildAndroid: ${{ vars.CSPROJ_TO_BUILD_Android }}
+      packageName: ${{ vars.PACKAGE_NAME }}
+      csprojToBuildIOS: ${{ vars.CSPROJ_TO_BUILD_IOS }}
+      projectFolder: ${{ vars.PROJECT_FOLDER }}
+    steps:
+      - run: echo "Exposing env vars, because they can't be passed to nested workflows."
+
+  build-android:
+    needs: vars
+    uses: ./.github/workflows/maui-android.yml
+    with:
+      dotnet-version: ${{ needs.vars.outputs.dotnetVersion }}
+      dotnet-version-target: ${{ needs.vars.outputs.dotnetVersionTargets }}
+      project-file: ${{ needs.vars.outputs.csprojToBuildAndroid }}
+      project-folder: ${{ needs.vars.outputs.projectFolder }}
+      build-config: 'Release'
+      build-version: ${{ needs.vars.outputs.buildVersion }}
+    secrets:
+      keystore: ${{ secrets.PLAY_KEYSTORE }}
+      keystore-alias: ${{ secrets.PLAY_KEYSTORE_ALIAS }}
+      keystore-password: ${{ secrets.PLAY_KEYSTORE_PASS }}
+      playstore-service-account: ${{ secrets.PLAYSTORE_SERVICE_ACC }}
+
+  build-ios:   
+    needs: vars 
+    uses: ./.github/workflows/maui-ios.yml
+    with:
+      dotnet-version: ${{ needs.vars.outputs.dotnetVersion }}
+      dotnet-version-target: ${{ needs.vars.outputs.dotnetVersionTargets }}
+      xcode-version: ${{ needs.vars.outputs.xcodeVersion }}
+      project-file: ${{ needs.vars.outputs.csprojToBuildIOS }}
+      project-folder: ${{ needs.vars.outputs.projectFolder }}
+      package-name: ${{ needs.vars.outputs.packageName }}
+      build-config: 'Release'
+      build-version: ${{ needs.vars.outputs.buildVersion }}
+    secrets:
+      p12-cert: ${{ secrets.CERTIFICATES_P12 }}
+      p12-cert-password: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+      appstore-issuer: ${{ secrets.APPSTORE_ISSUER_ID }}
+      appstore-keyid: ${{ secrets.APPSTORE_KEY_ID }}
+      appstore-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
