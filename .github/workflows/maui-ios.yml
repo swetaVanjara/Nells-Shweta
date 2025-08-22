@@ -81,14 +81,6 @@ jobs:
           p12-file-base64: ${{ secrets.p12-cert }}
           p12-password: ${{ secrets.p12-cert-password }}
 
-      - name: Decode App Store API key
-        id: decode_api_key
-        uses: timheuer/base64-to-file@v1
-        with:
-          fileName: AuthKey.p8
-          fileDir: ${{ github.workspace }}
-          encodedString: ${{ secrets.appstore-private-key }}
-
       - name: Download Provisioning Profiles
         id: provisioning
         uses: apple-actions/download-provisioning-profiles@v1
@@ -97,7 +89,7 @@ jobs:
             profile-type: 'IOS_APP_STORE'
             issuer-id: ${{ secrets.appstore-issuer }}
             api-key-id: ${{ secrets.appstore-keyid }}
-            api-private-key: ${{ steps.decode_api_key.outputs.filePath }}
+            api-private-key: ${{ secrets.appstore-private-key }}
 
       - name: Version the app
         uses: managedcode/MAUIAppVersion@v1
