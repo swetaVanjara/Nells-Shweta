@@ -80,6 +80,8 @@ jobs:
         with:
           p12-file-base64: ${{ secrets.p12-cert }}
           p12-password: ${{ secrets.p12-cert-password }}
+      - run: |
+          echo "${{ secrets.appstore-private-key }}" | head -5
 
       - name: Download Provisioning Profiles
         id: provisioning
@@ -90,7 +92,6 @@ jobs:
             issuer-id: ${{ secrets.appstore-issuer }}
             api-key-id: ${{ secrets.appstore-keyid }}
             api-private-key: ${{ secrets.appstore-private-key }}
-
       - name: Version the app
         uses: managedcode/MAUIAppVersion@v1
         with:
@@ -99,12 +100,12 @@ jobs:
           displayVersion: ${{ inputs.build-version }}.${{ github.run_number }}
           printFile: true
 
-      - name: Publish the iOS app (signed)
-        run: |
-          dotnet publish "${{ inputs.project-file }}" \
-            -c "${{ inputs.build-config }}" \
-            "-f:${{ inputs.dotnet-version-target }}-ios" \
-            -p:ArchiveOnBuild=true \
-            -p:EnableAssemblyILStripping=false \
-            -p:CodesignKey="Apple Distribution: NellsPay Ltd (DK7JA7VZ2D)" \
-            --no-restore
+      # - name: Publish the iOS app (signed)
+      #   run: |
+      #     dotnet publish "${{ inputs.project-file }}" \
+      #       -c "${{ inputs.build-config }}" \
+      #       "-f:${{ inputs.dotnet-version-target }}-ios" \
+      #       -p:ArchiveOnBuild=true \
+      #       -p:EnableAssemblyILStripping=false \
+      #       -p:CodesignKey="Apple Distribution: NellsPay Ltd (DK7JA7VZ2D)" \
+      #       --no-restore
