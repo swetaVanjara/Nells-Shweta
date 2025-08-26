@@ -37,6 +37,10 @@ on:
         required: true
       appstore-private-key:
         required: true
+      provisioning-profile:
+        required: false
+      keychain-password:
+        required: false
 jobs:
   build-ios:
     runs-on: macos-15
@@ -80,6 +84,9 @@ jobs:
         with:
           p12-file-base64: ${{ secrets.p12-cert }}
           p12-password: ${{ secrets.p12-cert-password }}
+          provisioning-profile: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+          keychain-password: ${{ secrets.KEYCHAIN_PASSWORD }}
+
 
       - name: Debug 
         run: |

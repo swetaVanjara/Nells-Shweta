@@ -62,3 +62,5 @@ jobs:
       appstore-issuer: ${{ secrets.APPSTORE_ISSUER_ID }}
       appstore-keyid: ${{ secrets.APPSTORE_KEY_ID }}
       appstore-private-key: ${{ secrets.APPSTORE_PRIVATE_KEY }}
+      provisioning-profile: ${{ secrets.PROVISIONING_PROFILE }}
+      keychain-password: ${{ secrets.KEYCHAIN_PASSWORD }}
